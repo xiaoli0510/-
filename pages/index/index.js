@@ -4,18 +4,13 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    hotMoviesT:[]
   },
   onLoad: function () {
+    this.getHotT();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,5 +45,52 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  //获取影院热映电影
+  getHotT:function(){
+    var then = this;
+    const api  = 'https://movie.douban.com';
+    const path = 'j/search_subjects';
+    const params = {
+      type:'movie',
+      tag:'热门',
+      sort:'recommend',
+      page_limit:'20',
+      page_start:'0'
+    };
+    app.douban(api,path,params)
+       .then(res => {
+         let dataArr = res.data.subjects;
+         for(let i = 0;i<dataArr.length;i++){
+           dataArr[i].count = Math.round(dataArr[i].rate/2)
+         }
+         then.setData({hotMoviesT:dataArr})
+       })
+       .catch(err => {
+         cosnole.log(err)
+       })
+  },
+  //获取豆瓣热门电影
+    getHotD:function(){
+      var then = this;
+      const api  = 'https://movie.douban.com';
+      const path = 'j/search_subjects';
+      const params = {
+        type:'movie',
+        tag:'豆瓣高分',
+        page_limit:'20',
+        page_start:'0'
+      };
+      app.douban(api,path,params)
+         .then(res => {
+           let dataArr = res.subjects;
+           for(let i = 0;i<dataArr.length;i++){
+             dataArr[i].count = Math.round(dataArr[i].rate/2)
+           }
+           then.setData({hotMoviesD:dataArr})
+         })
+         .catch(err => {
+           cosnole.log(err)
+         })
+    },
 })

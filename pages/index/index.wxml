@@ -1,4 +1,32 @@
 <!--index.wxml-->
 <view class="container">
-  
+    <view class="search-wrap">
+        <view class="search">
+            <image src="../../imgs/search.png" class="search-img" mode="aspectFill" />
+            <text>搜索1</text>
+        </view>
+    </view>
+    <view class="main">
+        <text class="title">影院热映</text>
+        <text class="more">查看更多</text>
+        <scroll-view scroll-x="true">
+            <block>
+                    <view class="inner-wrap">
+                        <navigator class="item-nav" wx:for="{{hotMoviesT}}" wx:key="id">
+                            <view class="item">
+                                <image src="{{item.cover}}" class="item-img" mode="aspectFill"/>
+                                <text class="item-title">{{item.title}}</text>
+                                <view  class="star-comment">
+                                        <view class="star-wrap">
+                                            <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx"/>
+                                            <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx"/>
+                                        </view>
+                                        <text class="comment">{{item.rate}}</text>
+                                </view>
+                           </view>
+                        </navigator>
+                    </view>
+            </block>
+        </scroll-view>
+    </view>
 </view>

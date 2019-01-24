@@ -1,6 +1,14 @@
 //app.js
+
+const douban = require('./utils/douban.js')
 App({
+  //初始化数据
+  data:{
+     cityName:''
+  },
+  douban:douban,
   onLaunch: function () {
+    var then = this;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -11,7 +19,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
-    })
+    }),
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -31,9 +39,39 @@ App({
           })
         }
       }
+    }),
+    //获取用户地理位置
+    wx.getLocation({
+      type: 'wgs84',
+      success(res){
+        //根据经纬度来获取相应的城市
+        const latitude = res.latitude;
+        const longitude = res.longitude;
+        const baiduPath = 'https://api.map.baidu.com/geocoder/v2/';
+        const params = { location: `${latitude},${longitude}`, output: 'json', ak: 'mHNw4eGrLPGtfcKW5CmOhiTHe6I0ZcBx' }
+       then.getCity(baiduPath,params);
+      }
     })
   },
   globalData: {
     userInfo: null
+  },
+  getCity:function(path,params){
+    var then = this;
+    wx.request({
+      url:path,
+      data:params,
+      header:{'Content-Type':'json'},
+      success:function(res){
+        then.cityName = res.data.result.addressComponent.city.replace('市','');
+        console.log(then.cityName)
+      },
+      fail:function(err){
+        console.log(err)
+      }
+
+    })
+
   }
 })
+
