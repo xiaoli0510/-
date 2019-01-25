@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="nav-wrap">
+        <navigator class="item-nav" wx:for="{{list}}" wx:key="id">
+                <view class="item">
+                    <image src="{{item.cover}}" class="item-img" mode="aspectFill"/>
+                    <text class="item-title">{{item.title}}</text>
+                    <view  class="star-comment">
+                            <view class="star-wrap">
+                                <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx"/>
+                                <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx"/>
+                            </view>
+                            <text class="comment">{{item.rate}}</text>
+                    </view>
+               </view>
+            </navigator>
+        </view>
+</view>

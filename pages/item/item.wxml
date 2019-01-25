@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- 介绍 -->
+    <view class="intro clearfix">
+        <image src="https://img3.doubanio.com//view//photo//s_ratio_poster//public//p2537158013.webp" mode="aspectFill" class="fl intro-img"
+        />
+        <view class="fr intro-r">
+            <text class="title-c">我爱我家</text>
+            <text class="title-c">(2018)</text>
+            <text class="title-e">I loe my home</text>
+            <text class="title-e">(2018)</text>
+            <view class="tag">
+                <text>喜剧 美剧</text>
+                <text>美国</text>
+                <text>2018年1月1日上映</text>
+                <text>时长119分钟</text>
+            </view>
+            <view class="wish clearfix">
+                <view class="fl">
+                    <image src="../../imgs/want.png" mode="aspectFit" />
+                    <text>想看</text>
+                </view>
+                <view class="fr">
+                    <image src="../../imgs/have_see.png" mode="aspectFit" />
+                    <text>看过</text>
+                </view>
+            </view>
+
+        </view>
+    </view>
+    <!-- 评分 -->
+    <!-- <view class="comment">
+        <text class="com-title">豆瓣评分</text>
+        <view class="clearfix">
+            <view class="com-l fl">
+                <text class="score">7.3</text>
+                <view class="star">
+                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
+                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
+                </view>
+            </view>
+            <view class="com-r fl">
+                <view class="clearfix">
+                    <view class="fl star-l">
+                            <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                    </view>
+                    <progress percent="60" color="pink" class="fl"/>
+                </view>
+            </view>
+        </view>
+    </view> -->
+</view>

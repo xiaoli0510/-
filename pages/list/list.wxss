@@ -1,0 +1,45 @@
+.container{
+  display:flex;
+  flex-direction:column;
+}
+.item-nav{
+  width:33.3%;
+  float:left;
+  display:flex;
+  flex-direction:row;
+  text-align:center;
+}
+.item-img{
+  width:200rpx;
+  height:250rpx;
+}
+.item{
+  display:flex;
+  flex-direction:column;
+  margin:0 auto;
+  margin-bottom:25rpx;
+}
+.item-title{
+  font-size:14rpx;
+  font-weight:600;
+  margin: 10rpx 0 5rpx 0;
+}
+.star-comment{
+  position:relative;
+  height:20rpx;
+  font-size:14rpx;
+}
+.star-wrap{
+  position:absolute;
+  left:0;
+}
+.comment{
+  float:right;
+  position:absolute;
+  right:0;
+  
+}
+.star-img{
+  width:20rpx;
+  height:20rpx;
+}

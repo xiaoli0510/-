@@ -4,7 +4,8 @@ const douban = require('./utils/douban.js')
 App({
   //初始化数据
   data:{
-     cityName:''
+     cityName:'',
+     api:'https://movie.douban.com'
   },
   douban:douban,
   onLaunch: function () {

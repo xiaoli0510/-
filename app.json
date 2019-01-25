@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/board/board",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/list/list",
+    "pages/item/item"
   ],
   "permission":{
      "scope.userLocation":{

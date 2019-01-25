@@ -1,0 +1,82 @@
+page{
+  background:#f3f2f2;
+}
+.container {
+  padding:15rpx;
+}
+/* intro */
+.intro {
+  flex-direction:row;
+  height:400rpx;
+  width:100%;
+  display:flex;
+  color:#000;
+}
+.intro-r {
+  display:flex;
+  flex-direction:column;
+  float:right;
+  margin-left:20rpx;
+  font-size:22rpx;
+  
+}
+.intro-img {
+  width:216rpx;
+  height:306rpx;
+}
+.title-c {
+  font-size:32rpx;
+  font-weight:700;
+}
+.title-e {
+  font-size:28rpx;
+  font-weight:500;
+  color:#a09e9e;
+}
+.tag {
+   margin:20rpx 0 30rpx 0;
+   color:#a09e9e;
+}
+.wish view{
+  font-size:26rpx;
+  font-weight:600;
+  text-align:center;
+  width:45%;
+  display:inline-block;
+  background:#fff;
+  padding:10rpx 0;
+  box-shadow:0 5rpx 5rpx -5rpx rgba(0,0,0,.5);
+}
+.wish image{
+  width:30rpx;
+  height:30rpx;
+  margin-right:10rpx;
+  vertical-align:middle;
+}
+.wish text{
+  vertical-align:middle;
+}
+/* comment */
+.comment {
+  display:flex;
+  flex-direction:row;
+}
+.com-title {
+  font-size:22rpx;
+}
+.score {
+  font-size:32rpx;
+}
+.com-l,.com-r{
+  display:flex;
+  flex-direction:column;
+  text-align: right;
+}
+.star1-img {
+  width:20rpx;
+  height:20rpx;
+}
+.star-img {
+  width:15rpx;
+  height:15rpx;
+}
