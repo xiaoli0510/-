@@ -1,6 +1,8 @@
 //app.js
 
 const douban = require('./utils/douban.js')
+const utils = require('./utils/util.js')
+
 App({
   //初始化数据
   data:{
@@ -8,6 +10,7 @@ App({
      api:'https://movie.douban.com'
   },
   douban:douban,
+  utils:utils,
   onLaunch: function () {
     var then = this;
     // 展示本地存储能力

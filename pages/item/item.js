@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    itemData:{}
 
   },
   onLoad: function (options) {
@@ -20,7 +21,10 @@ Page({
     const path = 'v2/movie/subject/'+id;
     app.douban(itemApi, path, {})
       .then(res => {
-        console.log(res)
+        console.log(res.data)
+        let time = res.data.mainland_pubdate;
+        console.log(res.data.images.small)
+        then.setData({itemData:res.data})
       })
       .catch(err => {
         console.log(err)

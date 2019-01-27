@@ -2,18 +2,17 @@
 <view class="container">
     <!-- 介绍 -->
     <view class="intro clearfix">
-        <image src="https://img3.doubanio.com//view//photo//s_ratio_poster//public//p2537158013.webp" mode="aspectFill" class="fl intro-img"
-        />
+        <image src="{{itemData.images.small}}" mode="aspectFill" class="fl intro-img"/>
         <view class="fr intro-r">
-            <text class="title-c">我爱我家</text>
-            <text class="title-c">(2018)</text>
-            <text class="title-e">I loe my home</text>
-            <text class="title-e">(2018)</text>
+            <text class="title-c">{{itemData.original_title}}</text>
+            <text class="title-c">({{itemData.year}})</text>
+            <!-- <text class="title-e">I loe my home</text>
+            <text class="title-e">(2018)</text> -->
             <view class="tag">
-                <text>喜剧 美剧</text>
-                <text>美国</text>
-                <text>2018年1月1日上映</text>
-                <text>时长119分钟</text>
+                <text wx:for="{{itemData.tags}}" wx:key="idx">{{item}} </text>/
+                <text wx:for="{{itemData.countries}} " wx:key="idx">{{item}}</text>/
+                <text>{{itemData.mainland_pubdate}}上映</text>/
+                <text>时长{{itemData.durations}}</text>
             </view>
             <view class="wish clearfix">
                 <view class="fl">
@@ -29,12 +28,14 @@
         </view>
     </view>
     <!-- 评分 -->
-    <!-- <view class="comment">
+    <view class="comment s">
         <text class="com-title">豆瓣评分</text>
-        <view class="clearfix">
+        <view class="clearfix com-wrap">
             <view class="com-l fl">
                 <text class="score">7.3</text>
                 <view class="star">
+                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
+                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
                     <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
                     <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
                 </view>
@@ -42,11 +43,151 @@
             <view class="com-r fl">
                 <view class="clearfix">
                     <view class="fl star-l">
-                            <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
                     </view>
-                    <progress percent="60" color="pink" class="fl"/>
+                    <progress percent="60" color="#faa70a" class="fl progress" />
                 </view>
+                <view class="clearfix">
+                    <view class="fl star-l">
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                    </view>
+                    <progress percent="60" color="#faa70a" class="fl progress" />
+                </view>
+                <view class="clearfix">
+                    <view class="fl star-l">
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                    </view>
+                    <progress percent="60" color="#faa70a" class="fl progress" />
+                </view>
+                <view class="clearfix">
+                    <view class="fl star-l">
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                    </view>
+                    <progress percent="60" color="#faa70a" class="fl progress" />
+                </view>
+                <view class="clearfix">
+                    <view class="fl star-l">
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                    </view>
+                    <progress percent="60" color="#faa70a" class="fl progress" />
+                </view>
+                <text>477060人评分</text>
             </view>
         </view>
-    </view> -->
+    </view>
+    <!-- 简介 -->
+    <view class="desc">
+        <text class="sub-title">简介</text>
+        <text class="summary">在啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</text>
+        <text class="unfold">展开</text>
+    </view>
+    <!-- 影人 -->
+    <view class="figure">
+        <text class="sub-title">影人</text>
+        <scroll-view scroll-x="true" class="scroll-wrap">
+            <view class="inner-wrap">
+                <view class="figure-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="casts-img" />
+                    <text class="casts">陈陈陈</text>
+                    <text>导演</text>
+                </view>
+                <view class="figure-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="casts-img" />
+                    <text class="casts">陈陈陈</text>
+                    <text>导演</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 预告片/剧照 -->
+    <view class="photo">
+        <view class="clearfix">
+            <text class="sub-title fl">预告片/剧照</text>
+            <text class="more fr">全部544></text>
+        </view>
+        <scroll-view scroll-x="true" class="scroll-wrap">
+            <view class="phont-wrap">
+                <view class="photo-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="phont-img" />
+                </view>
+                <view class="photo-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="phont-img" />
+                </view>
+                <view class="photo-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="phont-img" />
+                </view>
+                <view class="photo-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="phont-img" />
+                </view>
+                <view class="photo-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="phont-img" />
+                </view>
+                <view class="photo-item">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="phont-img" />
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 短评 -->
+    <view class="review s">
+        <view class="clearfix">
+            <text class="sub-title fl">短评</text>
+            <text class="more fr">全部11111></text>
+        </view>
+        <view class="review-wrap">
+            <view class="review-item">
+                <view class="review-header clearfix">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="review-img fl" />
+                    <view class="fl">
+                        <text class="review-name">无耻不混蛋</text>
+                        <view class="review-star">
+                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
+                            <text>2018年11月7日</text>
+                        </view>
+                    </view>
+                </view>
+                <text>不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，</text>
+                <view class="review-b">
+                    <image src="../../imgs/finger.png" mode="aspectFill" class="finger-img fl" />
+                    <text class="finger-number">5855</text>
+                </view>
+            </view>
+            <view class="review-item">
+                <view class="review-header clearfix">
+                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                        class="review-img fl" />
+                    <view class="fl">
+                        <text class="review-name">无耻不混蛋</text>
+                        <view class="review-star">
+                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
+                            <text>2018年11月7日</text>
+                        </view>
+                    </view>
+                </view>
+                <text>不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，</text>
+                <view class="review-b">
+                    <image src="../../imgs/finger.png" mode="aspectFill" class="finger-img fl" />
+                    <text class="finger-number">5855</text>
+                </view>
+            </view>
+          <view class="clearfix">
+              <text class="fl view-all">查看全部短评</text>
+              <text class="fr view-r">></text>
+          </view>
+        </view>
+    </view>
 </view>

@@ -1,5 +1,6 @@
 page{
   background:#f3f2f2;
+  font-size:20rpx;
 }
 .container {
   padding:15rpx;
@@ -22,6 +23,7 @@ page{
 }
 .intro-img {
   width:216rpx;
+  min-width:216rpx;
   height:306rpx;
 }
 .title-c {
@@ -57,26 +59,161 @@ page{
   vertical-align:middle;
 }
 /* comment */
-.comment {
+.s {
   display:flex;
-  flex-direction:row;
+  flex-direction:column;
+  background:#fff;
+  box-shadow:#ccc 0 0 20rpx;
+  padding:20rpx;
+  border-radius:10rpx;
+  font-size:20rpx;
+}
+.comment{
+  color:#ddd;
 }
 .com-title {
-  font-size:22rpx;
+  font-size:24rpx;
+  color:#000;
+  font-weight:600;
 }
 .score {
-  font-size:32rpx;
+  font-size:70rpx;
 }
 .com-l,.com-r{
   display:flex;
   flex-direction:column;
   text-align: right;
 }
+.com-wrap{
+  width:80%;
+  margin:0 auto;
+}
+.com-l{
+  width:30%;
+  margin-right:5%;
+  text-align:center;
+}
+.com-r{
+  width:50%;
+}
+.star-l{
+  display:flex;
+ flex-direction:row;
+ width:30%;
+}
 .star1-img {
-  width:20rpx;
-  height:20rpx;
+  width:30rpx;
+  height:30rpx;
 }
 .star-img {
-  width:15rpx;
-  height:15rpx;
+  width:25rpx;
+ height:25rpx;
+}
+.progress{
+  width:70%;
+  height:25rpx;
+}
+/* 简介 */
+.desc,.figure {
+  margin: 30rpx 0;
+  display:flex;
+  flex-direction: column;
+}
+.sub-title{
+  font-size:30rpx;
+  font-weight:600;
+  color:#000;
+  margin-bottom:10rpx;
+}
+.more{
+  font-size:24rpx;
+  color:#7d7979;
+}
+.summary{
+  font-size:20rpx;
+  color:#000;
+}
+.unfold{
+  text-align:right;
+  color:#7d7979;
+  font-size:20rpx;
+}
+/* 影人 */
+.scroll-wrap{
+  display:flex;
+  flex-direction:row;
+}
+.inner-wrap{
+  display:flex;
+  flex-direction:row;
+}
+.figure-item{
+  display:flex;
+  flex-direction:column;
+  width:180rpx;
+  margin:0 10rpx;
+  font-size:16rpx;
+  color:#7d7979;
+}
+.casts{
+  color:#000;
+  font-size:20rpx;
+}
+.casts-img{
+   border:1rpx solid #efeded;
+   border-radius:10rpx;
+   width:180rpx;
+   height:250rpx;
+}
+/* 预告片/剧照 */
+.photo{
+  margin-bottom:.2rem;
+}
+.phont-wrap{
+  display:flex;
+  flex-direction:row;
+}
+.phont-img{
+  width:250rpx;
+  height:180rpx;
+}
+.photo-item{
+  margin-right:5rpx;
+}
+/* 短评 */
+.review-item{
+  border-bottom:1rpx solid #ccc;
+  padding:20rpx 0;
+  margin-bottom:20rpx;
+}
+.review-header{
+  margin-bottom:10rpx;
+}
+.review-img{
+  width:65rpx;
+  height:65rpx;
+  border-radius:50%;
+  margin-right:5%;
+}
+.finger-img{
+  width:30rpx;
+  height:30rpx;
+}
+.review-name,.view-all{
+  font-weight:600;
+}
+.review-b{
+  margin-top:10rpx;
+}
+.review-star{
+  font-size:18rpx;
+  color:#7d7979;
+  margin-left:-5%;
+}
+.finger-number{
+  color:#7d7979;
+  vertical-align: middle;
+}
+.view-r{
+  color:#7d7979;
 }
