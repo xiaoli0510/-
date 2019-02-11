@@ -8,7 +8,6 @@ Page({
 
   },
   onLoad: function (options) {
-    console.log(options)
     wx.setNavigationBarTitle({
       title:options.title
     });
@@ -21,9 +20,27 @@ Page({
     const path = 'v2/movie/subject/'+id;
     app.douban(itemApi, path, {})
       .then(res => {
-        console.log(res.data)
-        let time = res.data.mainland_pubdate;
-        console.log(res.data.images.small)
+        //获取评分的星星个数
+        let starCount = Math.round(res.data.rating.average/2);
+        res.data.rating.starCount=starCount;
+        //获取评分一星二星三星四星五星的数量
+        let detailsArr = [];
+        let details = res.data.rating.details;
+        let allCount = 0;
+        //计算总的评分人数
+        for(let key in details){
+          allCount+=details[key];
+        }
+        console.log(detailsArr,allCount)
+        //将percent添加到detailsArr
+        for(let key in details){
+          let percent = Math.round((details[key]/allCount)*100);
+          console.log(percent)
+          detailsArr.push(percent);
+        }
+        detailsArr.reverse();
+        res.data.rating.allCount=allCount;
+        res.data.rating.detailsArr=detailsArr;
         then.setData({itemData:res.data})
       })
       .catch(err => {

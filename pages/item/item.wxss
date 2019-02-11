@@ -94,12 +94,12 @@ page{
   text-align:center;
 }
 .com-r{
-  width:50%;
+  width:60%;
 }
 .star-l{
-  display:flex;
- flex-direction:row;
- width:30%;
+  min-width:125rpx;
+  height:25rpx;
+  
 }
 .star1-img {
   width:30rpx;
@@ -110,7 +110,7 @@ page{
  height:25rpx;
 }
 .progress{
-  width:70%;
+  width:200rpx;
   height:25rpx;
 }
 /* 简介 */

@@ -32,51 +32,19 @@
         <text class="com-title">豆瓣评分</text>
         <view class="clearfix com-wrap">
             <view class="com-l fl">
-                <text class="score">7.3</text>
+                <text class="score">{{itemData.rating.average}}</text>
                 <view class="star">
-                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
-                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
-                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
-                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
+                    <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" wx:for="{{itemData.rating.starCount}}" wx:key="idx"/>
                 </view>
             </view>
             <view class="com-r fl">
-                <view class="clearfix">
+                <view class="clearfix" wx:for="{{itemData.rating.detailsArr}}" wx:for-index="key" wx:key="idx">
                     <view class="fl star-l">
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" wx:for="{{5-key}}" wx:key="idx"/>
                     </view>
-                    <progress percent="60" color="#faa70a" class="fl progress" />
+                    <progress percent="{{item}}" color="#faa70a" class="fl progress" />
                 </view>
-                <view class="clearfix">
-                    <view class="fl star-l">
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                    </view>
-                    <progress percent="60" color="#faa70a" class="fl progress" />
-                </view>
-                <view class="clearfix">
-                    <view class="fl star-l">
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                    </view>
-                    <progress percent="60" color="#faa70a" class="fl progress" />
-                </view>
-                <view class="clearfix">
-                    <view class="fl star-l">
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                    </view>
-                    <progress percent="60" color="#faa70a" class="fl progress" />
-                </view>
-                <view class="clearfix">
-                    <view class="fl star-l">
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" />
-                    </view>
-                    <progress percent="60" color="#faa70a" class="fl progress" />
-                </view>
-                <text>477060人评分</text>
+                <text>{{itemData.rating.allCount}}人评分</text>
             </view>
         </view>
     </view>
