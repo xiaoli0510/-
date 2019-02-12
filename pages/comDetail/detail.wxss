@@ -1,0 +1,125 @@
+page{
+  background:#f3f2f2;
+  font-size:20rpx;
+}
+.container {
+  padding:15rpx;
+}
+/* comment */
+.s {
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  box-shadow:#ccc 0 0 20rpx;
+  padding:20rpx;
+  border-radius:10rpx;
+  font-size:20rpx;
+}
+.comment{
+  color:#565454;
+}
+.com-title {
+  font-size:24rpx;
+  color:#000;
+  font-weight:600;
+  position:relative;
+}
+.score {
+  font-size:70rpx;
+  color:#000;
+  font-weight:500;
+}
+.com-l,.com-r{
+  display:flex;
+  flex-direction:column;
+  text-align: right;
+}
+.com-wrap{
+  width:90%;
+  margin:5% auto;
+  text-align: right;
+}
+.com-wrap-inner{
+  margin-bottom:2%;
+}
+.com-l{
+  width:25%;
+  text-align:center;
+}
+.com-r{
+  width:75%;
+}
+.star-l{
+  width:40%;
+  min-width:125rpx;
+  height:25rpx;
+}
+.star1-img {
+  width:30rpx;
+  height:30rpx;
+}
+.star-img {
+  width:25rpx;
+ height:25rpx;
+}
+.progress{
+  width:48%;
+  height:25rpx;
+  margin-left:2%;
+  margin-right:4%;
+}
+.percent-txt{
+  width:6%;
+  text-align:center;
+  font-size:16rpx;
+}
+.allCount{
+  margin-right:10%;
+}
+/* 短评 */
+.sub-title{
+  width:70%;
+  font-size:30rpx;
+  font-weight:600;
+  color:#000;
+}
+.review-item{
+  border-bottom:1rpx solid #ccc;
+  padding:20rpx 0;
+  margin-bottom:20rpx;
+}
+.review-header{
+  margin-bottom:10rpx;
+}
+.review-img{
+  width:65rpx;
+  height:65rpx;
+  border-radius:50%;
+  margin-right:5%;
+}
+.finger-img{
+  width:30rpx;
+  height:30rpx;
+  margin-right:1%;
+}
+.review-name,.view-all{
+  font-weight:600;
+}
+.review-b{
+  margin-top:10rpx;
+}
+.review-star,.more{
+  font-size:18rpx;
+  color:#7d7979;
+  margin-left:-5%;
+}
+.more{
+  margin-left:2%;
+}
+.finger-number{
+  color:#7d7979;
+  vertical-align: middle;
+}
+.view-r{
+  color:#7d7979;
+}

@@ -29,18 +29,22 @@
     </view>
     <!-- 评分 -->
     <view class="comment s">
-        <text class="com-title">豆瓣评分</text>
+        <navigator class="clearfix" url="/pages/comDetail/detail?id={{id}}&title={{itemData.original_title}}">
+                <view class="com-title fl">豆瓣评分<text class="tm-sup">TM</text></view>
+                <text class="fr" decode='true'>&gt;</text>
+        </navigator>
         <view class="clearfix com-wrap">
             <view class="com-l fl">
                 <text class="score">{{itemData.rating.average}}</text>
                 <view class="star">
                     <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" wx:for="{{itemData.rating.starCount}}" wx:key="idx"/>
+                    <image src="../../imgs/star.png" mode="aspectFill" class="star1-img" wx:for="{{5-itemData.rating.starCount}}" wx:key="idx"/>
                 </view>
             </view>
             <view class="com-r fl">
-                <view class="clearfix" wx:for="{{itemData.rating.detailsArr}}" wx:for-index="key" wx:key="idx">
-                    <view class="fl star-l">
-                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" wx:for="{{5-key}}" wx:key="idx"/>
+                <view class="clearfix" wx:for="{{itemData.rating.detailsArr}}" wx:key="idx1" wx:for-index="idx1">
+                    <view class="fl star-l" data-aa="{{idx1}}">
+                        <image src="../../imgs/star.png" mode="aspectFill" class="star-img" wx:for="{{5-idx1}}" wx:key="idx"/>
                     </view>
                     <progress percent="{{item}}" color="#faa70a" class="fl progress" />
                 </view>
@@ -51,25 +55,26 @@
     <!-- 简介 -->
     <view class="desc">
         <text class="sub-title">简介</text>
-        <text class="summary">在啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</text>
-        <text class="unfold">展开</text>
+        <text class="summary {{isUnfold?'active':''}}">{{itemData.summary}}</text>
+        <text class="unfold" bindtap="unfoldSum" wx:if="{{!isUnfold}}">展开</text>
+        <text class="unfold" bindtap="unfoldSum" wx:if="{{isUnfold}}">收起</text>
     </view>
     <!-- 影人 -->
     <view class="figure">
         <text class="sub-title">影人</text>
         <scroll-view scroll-x="true" class="scroll-wrap">
             <view class="inner-wrap">
-                <view class="figure-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="casts-img" />
-                    <text class="casts">陈陈陈</text>
-                    <text>导演</text>
+                <view class="figure-item" wx:for="{{itemData.directors}}" wx:key="idx">
+                        <image src="{{item.avatars.small}}" mode="aspectFill"
+                            class="casts-img" />
+                        <text class="casts">{{item.name}}</text>
+                        <text>导演</text>
                 </view>
-                <view class="figure-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                <view class="figure-item" wx:for="{{itemData.casts}}" wx:key="idx">
+                    <image src="{{item.avatars.small}}" mode="aspectFill"
                         class="casts-img" />
-                    <text class="casts">陈陈陈</text>
-                    <text>导演</text>
+                    <text class="casts">{{item.name}}</text>
+                    <text>演员</text>
                 </view>
             </view>
         </scroll-view>
@@ -78,32 +83,12 @@
     <view class="photo">
         <view class="clearfix">
             <text class="sub-title fl">预告片/剧照</text>
-            <text class="more fr">全部544></text>
+            <text class="more fr">全部></text>
         </view>
         <scroll-view scroll-x="true" class="scroll-wrap">
             <view class="phont-wrap">
-                <view class="photo-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="phont-img" />
-                </view>
-                <view class="photo-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="phont-img" />
-                </view>
-                <view class="photo-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="phont-img" />
-                </view>
-                <view class="photo-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="phont-img" />
-                </view>
-                <view class="photo-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="phont-img" />
-                </view>
-                <view class="photo-item">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                <view class="photo-item" wx:for="{{itemData.photos}}" wx:key="idx">
+                    <image src="{{item.thumb}}" mode="aspectFill"
                         class="phont-img" />
                 </view>
             </view>
@@ -113,43 +98,25 @@
     <view class="review s">
         <view class="clearfix">
             <text class="sub-title fl">短评</text>
-            <text class="more fr">全部11111></text>
+            <text class="more fr">全部{{itemData.comments_count}}></text>
         </view>
         <view class="review-wrap">
-            <view class="review-item">
+            <view class="review-item" wx:for="{{itemData.popular_comments}}" wx:key="idx">
                 <view class="review-header clearfix">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
+                    <image src="{{item.author.avatar}}" mode="aspectFill"
                         class="review-img fl" />
                     <view class="fl">
-                        <text class="review-name">无耻不混蛋</text>
+                        <text class="review-name">{{item.author.name}}</text>
                         <view class="review-star">
-                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
-                            <text>2018年11月7日</text>
+                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" wx:for="{{item.rating.value}}" wx:key="idx"/>
+                            <text>{{item.created_at}}</text>
                         </view>
                     </view>
                 </view>
-                <text>不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，</text>
+                <text decode='true'>{{item.content}}</text>
                 <view class="review-b">
                     <image src="../../imgs/finger.png" mode="aspectFill" class="finger-img fl" />
-                    <text class="finger-number">5855</text>
-                </view>
-            </view>
-            <view class="review-item">
-                <view class="review-header clearfix">
-                    <image src="https://img3.doubanio.com//view//celebrity//s_ratio_celebrity//public//p1415455964.31.webp" mode="aspectFill"
-                        class="review-img fl" />
-                    <view class="fl">
-                        <text class="review-name">无耻不混蛋</text>
-                        <view class="review-star">
-                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" />
-                            <text>2018年11月7日</text>
-                        </view>
-                    </view>
-                </view>
-                <text>不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，不是爱爱情，</text>
-                <view class="review-b">
-                    <image src="../../imgs/finger.png" mode="aspectFill" class="finger-img fl" />
-                    <text class="finger-number">5855</text>
+                    <text class="finger-number">{{item.useful_count}}</text>
                 </view>
             </view>
           <view class="clearfix">
@@ -158,4 +125,26 @@
           </view>
         </view>
     </view>
+    <!-- 影评 -->
+    <view class="review s popular_reviews">
+            <view class="sub-title">
+                    影评<text class="reviews-count">{{itemData.reviews_count}}条</text>
+            </view>
+            <view class="review-wrap">
+                <view class="review-item" wx:for="{{itemData.popular_reviews}}" wx:key="idx">
+                    <view class="review-header clearfix">
+                        <image src="{{item.author.avatar}}" mode="aspectFill"
+                            class="user-img fl" />
+                        <view class="fl">
+                            <text class="review-name fl">{{item.author.name}}</text>
+                            <view class="fl">
+                                <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" wx:for="{{item.rating.value}}" wx:key="idx"/>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="com-title">{{item.title}}</view>
+                    <text decode='true' class="reviews-sum">{{item.summary}}</text>
+                </view>
+            </view>
+        </view>
 </view>

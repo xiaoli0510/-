@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    id:'',//id
     itemData:{},
     isUnfold:false,//是否展开简介
 
@@ -14,7 +13,6 @@ Page({
       title:options.title
     });
     this.getDoubanData(options.id);
-    this.setData({id:options.id})
   },
   //封装函数 获取豆瓣数据
   getDoubanData: function (id) {

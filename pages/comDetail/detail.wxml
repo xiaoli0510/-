@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- 评分 -->
+    <view class="comment s">
+        <view class="clearfix">
+                <view class="com-title fl">豆瓣评分<text class="tm-sup">TM</text></view>
+                <text class="fr" decode='true'>&gt;</text>
+        </view>
+        <view class="clearfix com-wrap">
+           <view class="com-wrap-inner clearfix">
+                <view class="com-l fl">
+                        <text class="score">{{itemData.rating.average}}</text>
+                        <view class="star">
+                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" wx:for="{{itemData.rating.starCount}}" wx:key="idx"/>
+                            <image src="../../imgs/star.png" mode="aspectFill" class="star1-img" wx:for="{{5-itemData.rating.starCount}}" wx:key="idx"/>
+                        </view>
+                    </view>
+                    <view class="com-r fl">
+                        <view class="clearfix" wx:for="{{itemData.rating.detailsArr}}" wx:key="idx1" wx:for-index="idx1">
+                            <view class="fl star-l" data-aa="{{idx1}}">
+                                <image src="../../imgs/star.png" mode="aspectFill" class="star-img" wx:for="{{5-idx1}}" wx:key="idx"/>
+                            </view>
+                            <progress percent="{{item}}" color="#faa70a" class="fl progress" />
+                            <text class="fl percent-txt">50%</text>
+                        </view>
+                        <text class="allCount">{{itemData.rating.allCount}}人评分</text>
+                    </view>
+           </view>
+            <view>好于97%的同性片</view>
+            <view>好于96%的喜剧片</view>
+        </view>
+    </view>
+    <!-- 短评 -->
+    <view class="review s">
+        <view class="clearfix">
+            <view class="fl sub-title">
+              短评<text class="more">{{itemData.comments_count}}条</text>
+            </view> 
+            <text class="more fr">看过</text>
+        </view>
+        <view class="review-wrap">
+            <view class="review-item" wx:for="{{itemData.popular_comments}}" wx:key="idx">
+                <view class="review-header clearfix">
+                    <image src="{{item.author.avatar}}" mode="aspectFill"
+                        class="review-img fl" />
+                    <view class="fl">
+                        <text class="review-name">{{item.author.name}}</text>
+                        <view class="review-star">
+                            <image src="../../imgs/star1.png" mode="aspectFill" class="star1-img" wx:for="{{item.rating.value}}" wx:key="idx"/>
+                            <text>{{item.created_at}}</text>
+                        </view>
+                    </view>
+                </view>
+                <text decode='true'>{{item.content}}</text>
+                <view class="review-b">
+                    <image src="../../imgs/finger.png" mode="aspectFill" class="finger-img fl" />
+                    <text class="finger-number">{{item.useful_count}}</text>
+                </view>
+            </view>
+          <view class="clearfix">
+              <text class="fl view-all">查看全部短评</text>
+              <text class="fr view-r">></text>
+          </view>
+        </view>
+    </view>
+</view>
