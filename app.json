@@ -5,7 +5,8 @@
     "pages/my/my",
     "pages/list/list",
     "pages/item/item",
-    "pages/comDetail/detail"
+    "pages/comDetail/detail",
+    "pages/photoMore/photoMore"
   ],
   "permission":{
      "scope.userLocation":{

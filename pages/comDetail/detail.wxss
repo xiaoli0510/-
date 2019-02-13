@@ -116,10 +116,41 @@ page{
 .more{
   margin-left:2%;
 }
+.fold{
+  width:20rpx;
+  height:20rpx;
+}
+.unfold{
+  transform:rotate(180deg);
+}
 .finger-number{
   color:#7d7979;
   vertical-align: middle;
 }
 .view-r{
   color:#7d7979;
+}
+.tab{
+  border:1rpx solid #7d7979;
+}
+.tabtext{
+  color:#7d7979;
+  line-height:50rpx;
+}
+.tabtext:first-child{
+  border-bottom:1rpx solid #7d7979;
+}
+.tabtext.active{
+  color:#63e053;
+}
+.review{
+  position:relative;
+}
+.tab{
+  position:absolute;
+  right:20rpx;
+  top:60rpx;
+  width:14%;
+  text-align:center;
+  background:#fff;
 }

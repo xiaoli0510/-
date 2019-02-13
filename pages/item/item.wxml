@@ -1,13 +1,15 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{Object.keys(itemData).length}}">
     <!-- 介绍 -->
     <view class="intro clearfix">
         <image src="{{itemData.images.small}}" mode="aspectFill" class="fl intro-img"/>
         <view class="fr intro-r">
-            <text class="title-c">{{itemData.original_title}}</text>
+            <text class="title-c">{{itemData.title}}</text>
             <text class="title-c">({{itemData.year}})</text>
-            <!-- <text class="title-e">I loe my home</text>
-            <text class="title-e">(2018)</text> -->
+           <view wx:if="{{isChina=='0'}}">
+                <text class="title-e">{{itemData.original_title}}</text>
+                <text class="title-e">({{itemData.year}})</text>
+           </view>
             <view class="tag">
                 <text wx:for="{{itemData.tags}}" wx:key="idx">{{item}} </text>/
                 <text wx:for="{{itemData.countries}} " wx:key="idx">{{item}}</text>/
@@ -28,11 +30,11 @@
         </view>
     </view>
     <!-- 评分 -->
-    <view class="comment s">
-        <navigator class="clearfix" url="/pages/comDetail/detail?id={{id}}&title={{itemData.original_title}}">
+    <navigator class="comment s" url="/pages/comDetail/detail?id={{id}}&title={{itemData.original_title}}">
+        <view class="clearfix">
                 <view class="com-title fl">豆瓣评分<text class="tm-sup">TM</text></view>
                 <text class="fr" decode='true'>&gt;</text>
-        </navigator>
+        </view>
         <view class="clearfix com-wrap">
             <view class="com-l fl">
                 <text class="score">{{itemData.rating.average}}</text>
@@ -51,7 +53,7 @@
                 <text>{{itemData.rating.allCount}}人评分</text>
             </view>
         </view>
-    </view>
+    </navigator>
     <!-- 简介 -->
     <view class="desc">
         <text class="sub-title">简介</text>
@@ -65,7 +67,7 @@
         <scroll-view scroll-x="true" class="scroll-wrap">
             <view class="inner-wrap">
                 <view class="figure-item" wx:for="{{itemData.directors}}" wx:key="idx">
-                        <image src="{{item.avatars.small}}" mode="aspectFill"
+                        <image src="{{item.avatars.small?item.avatars.small:'../../imgs/item_default.png'}}" mode="aspectFill"
                             class="casts-img" />
                         <text class="casts">{{item.name}}</text>
                         <text>导演</text>
@@ -83,7 +85,7 @@
     <view class="photo">
         <view class="clearfix">
             <text class="sub-title fl">预告片/剧照</text>
-            <text class="more fr">全部></text>
+            <navigator class="more fr" url="/pages/photoMore/photoMore?title={{itemData.original_title}}">全部></navigator>
         </view>
         <scroll-view scroll-x="true" class="scroll-wrap">
             <view class="phont-wrap">
@@ -98,7 +100,7 @@
     <view class="review s">
         <view class="clearfix">
             <text class="sub-title fl">短评</text>
-            <text class="more fr">全部{{itemData.comments_count}}></text>
+            <navigator class="more fr" url="/pages/comDetail/detail?id={{id}}&title={{itemData.original_title}}">全部{{itemData.comments_count}}></navigator>
         </view>
         <view class="review-wrap">
             <view class="review-item" wx:for="{{itemData.popular_comments}}" wx:key="idx">
@@ -119,10 +121,10 @@
                     <text class="finger-number">{{item.useful_count}}</text>
                 </view>
             </view>
-          <view class="clearfix">
+          <navigator class="clearfix" url="/pages/comDetail/detail?id={{id}}&title={{itemData.original_title}}">
               <text class="fl view-all">查看全部短评</text>
               <text class="fr view-r">></text>
-          </view>
+          </navigator>
         </view>
     </view>
     <!-- 影评 -->

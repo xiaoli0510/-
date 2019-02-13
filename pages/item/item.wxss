@@ -229,6 +229,9 @@ page{
   color:#7d7979;
 }
 /* 影评 */
+.popular_reviews{
+  margin: 3% auto;
+}
 .popular_reviews .review-name{
   color:#7d7979;
   font-weight:400;

@@ -37,12 +37,26 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": 1,
 					"name": "item",
 					"pathName": "pages/item/item",
+					"query": "id=27110296&title=无名之辈",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/comDetail/detail",
+					"query": "id=27110296&title=无名之辈",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "photoMore",
+					"pathName": "pages/photoMore/photoMore",
 					"query": "id=27110296&title=无名之辈",
 					"scene": null
 				}

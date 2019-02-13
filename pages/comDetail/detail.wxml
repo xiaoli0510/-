@@ -2,10 +2,7 @@
 <view class="container">
     <!-- 评分 -->
     <view class="comment s">
-        <view class="clearfix">
-                <view class="com-title fl">豆瓣评分<text class="tm-sup">TM</text></view>
-                <text class="fr" decode='true'>&gt;</text>
-        </view>
+         <view class="com-title">豆瓣评分<text class="tm-sup">TM</text></view>
         <view class="clearfix com-wrap">
            <view class="com-wrap-inner clearfix">
                 <view class="com-l fl">
@@ -26,8 +23,7 @@
                         <text class="allCount">{{itemData.rating.allCount}}人评分</text>
                     </view>
            </view>
-            <view>好于97%的同性片</view>
-            <view>好于96%的喜剧片</view>
+            <view wx:for="{{itemData.genres}}" wx:key="idx">好于97%的{{item}}片</view>
         </view>
     </view>
     <!-- 短评 -->
@@ -36,10 +32,16 @@
             <view class="fl sub-title">
               短评<text class="more">{{itemData.comments_count}}条</text>
             </view> 
-            <text class="more fr">看过</text>
+            <view class="more fr" bindtap="fold" >{{isFoldSeeTxt=='1'?'想看':'看过'}}
+                <image src="../../imgs/fold.png" class="fold {{!isFoldSee?'unfold':''}}"/>
+            </view>
+            <view class="tab" wx:if="{{isFoldSee}}">
+               <view class="tabtext {{isFoldSeeTxt=='1'?'active':''}}" bindtap="changeTab" data-id="1">想看</view>    
+               <view class="tabtext {{isFoldSeeTxt=='0'?'active':''}}" bindtap="changeTab" data-id="0">看过</view>    
+            </view>
         </view>
         <view class="review-wrap">
-            <view class="review-item" wx:for="{{itemData.popular_comments}}" wx:key="idx">
+            <view class="review-item" wx:for="{{comArr}}" wx:key="idx">
                 <view class="review-header clearfix">
                     <image src="{{item.author.avatar}}" mode="aspectFill"
                         class="review-img fl" />
@@ -57,10 +59,6 @@
                     <text class="finger-number">{{item.useful_count}}</text>
                 </view>
             </view>
-          <view class="clearfix">
-              <text class="fl view-all">查看全部短评</text>
-              <text class="fr view-r">></text>
-          </view>
         </view>
     </view>
 </view>

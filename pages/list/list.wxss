@@ -4,6 +4,7 @@
 }
 .item-nav{
   width:33.3%;
+  height:320rpx;
   float:left;
   display:flex;
   flex-direction:row;

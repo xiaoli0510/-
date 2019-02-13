@@ -7,7 +7,8 @@ Page({
     id:'',//id
     itemData:{},
     isUnfold:false,//是否展开简介
-
+    photoArr:[],//剧照数据
+    isChina:0,//是否是中国产的
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
@@ -23,28 +24,43 @@ Page({
     const path = 'v2/movie/subject/'+id;
     app.douban(itemApi, path, {})
       .then(res => {
-        //获取评分的星星个数
-        let starCount = Math.round(res.data.rating.average/2);
-        res.data.rating.starCount=starCount;
-        //获取评分一星二星三星四星五星的数量
-        let detailsArr = [];
-        let details = res.data.rating.details;
-        let allCount = 0;
-        //计算总的评分人数
-        for(let key in details){
-          allCount+=details[key];
+        if(res.data.code==1){
+          //判断是否是中国产的电影
+          if(res.data.countries[0]=='中国大陆'){
+            then.setData({isChina:1});
+          }
+          //获取评分的星星个数
+          let starCount = Math.round(res.data.rating.average/2);
+          res.data.rating.starCount=starCount;
+          //获取评分一星二星三星四星五星的数量
+          let detailsArr = [];
+          let details = res.data.rating.details;
+          let allCount = 0;
+          //计算总的评分人数
+          for(let key in details){
+            allCount+=details[key];
+          }
+          //将percent添加到detailsArr
+          for(let key in details){
+            let percent = Math.round((details[key]/allCount)*100);
+            detailsArr.push(percent);
+          }
+          detailsArr.reverse();
+          res.data.rating.allCount=allCount;
+          res.data.rating.detailsArr=detailsArr;
+          then.setData({itemData:res.data});
+          //将剧照的数据保存 在photoMore页面使用
+          wx.setStorage({
+            key:'photoArr',
+            data:res.data.photos
+          });
+        }else{
+          wx.showToast({
+            title: '网络异常',
+            image: '../../imgs/error.png',
+            duration: 2000
+           })
         }
-        //将percent添加到detailsArr
-        for(let key in details){
-          let percent = Math.round((details[key]/allCount)*100);
-          detailsArr.push(percent);
-        }
-        detailsArr.reverse();
-        console.log(detailsArr)
-        res.data.rating.allCount=allCount;
-        res.data.rating.detailsArr=detailsArr;
-        console.log(res.data.rating.detailsArr)
-        then.setData({itemData:res.data})
       })
       .catch(err => {
         console.log(err)
@@ -54,6 +70,5 @@ Page({
   unfoldSum:function(){
     let isUnfold = !this.data.isUnfold;
     this.setData({isUnfold:isUnfold});
-
   }
 })

@@ -6,16 +6,25 @@ Page({
   data: {
     itemData:{},
     isUnfold:false,//是否展开简介
-
+    isFoldSeeTxt:0,//0=>看过 1=》想看
+    isFoldSee:false,//tab切换看过还是想看
+    id:'',//影片id
+    comArr:[],//短评
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title:options.title
     });
-    this.getDoubanData(options.id);
+    this.setData({id:options.id});
+    this.getDoubanData(options.id,this.getItemData);
+  },
+  //上拉触底 加载更多
+  onReachBottom() {
+    this.getDoubanData(this.data.id,this.getItemDataMore);
+    // Do something when page reach bottom.
   },
   //封装函数 获取豆瓣数据
-  getDoubanData: function (id) {
+  getDoubanData: function (id,resolve) {
     var itemApi = 'https://douban.uieee.com';
     var then = this;
     const path = 'v2/movie/subject/'+id;
@@ -38,20 +47,46 @@ Page({
           detailsArr.push(percent);
         }
         detailsArr.reverse();
-        console.log(detailsArr)
         res.data.rating.allCount=allCount;
         res.data.rating.detailsArr=detailsArr;
-        console.log(res.data.rating.detailsArr)
-        then.setData({itemData:res.data})
+        resolve(res);
       })
       .catch(err => {
         console.log(err)
       })
   },
+  //封装获取数据成功后的业务处理
+  getItemData:function(res){
+    let then = this;
+    let comArr = res.data.popular_comments;
+    console.log(comArr)
+    then.setData({comArr:comArr})
+    then.setData({itemData:res.data})
+  },
+    //封装上拉加载更多短评
+    getItemDataMore:function(res){
+      let then = this;
+      let comArr = then.data.comArr;
+      comArr=comArr.concat(res.data.popular_comments);
+      then.setData({comArr:comArr})
+      then.setData({itemData:res.data})
+    },
   //展开简介
   unfoldSum:function(){
     let isUnfold = !this.data.isUnfold;
     this.setData({isUnfold:isUnfold});
-
+  },
+  //是否显示想看和看过展开栏
+  fold:function(){
+    let isFoldSee = !this.data.isFoldSee;
+    this.setData({isFoldSee:isFoldSee});
+  },
+  //tab切换想看和看过
+  changeTab:function(e){
+    console.log( e.currentTarget)
+    let id = e.currentTarget.dataset.id;
+    this.setData({isFoldSeeTxt:id});
+    this.setData({isFoldSee:false});
+    this.getDoubanData(this.data.id,this.getItemData);
   }
 })
