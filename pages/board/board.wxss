@@ -1,0 +1,18 @@
+.s{
+    background:rgba(0,0,0,.4);
+    border-radius:8rpx;
+    margin:10rpx auto;
+    padding:20rpx;
+    width:95%;
+    box-sizing:border-box;
+}
+.title{
+    font-size:24rpx;
+    color:#fff;
+    line-height:60rpx;
+}
+.board-img{
+    width:100rpx;
+    height:150rpx;
+    margin-left:-3%;
+}

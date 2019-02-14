@@ -15,9 +15,8 @@
 }
 .search-img{
   width:30rpx;
-height:30rpx;
-vertical-align:middle;
-
+ height:30rpx;
+ vertical-align:middle;
 }
 .search text{
   vertical-align:middle;

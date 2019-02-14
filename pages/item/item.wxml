@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" wx:if="{{Object.keys(itemData).length}}">
+<view class="container" wx:if="{{hasData}}">
     <!-- 介绍 -->
     <view class="intro clearfix">
         <image src="{{itemData.images.small}}" mode="aspectFill" class="fl intro-img"/>
@@ -33,7 +33,7 @@
     <navigator class="comment s" url="/pages/comDetail/detail?id={{id}}&title={{itemData.original_title}}">
         <view class="clearfix">
                 <view class="com-title fl">豆瓣评分<text class="tm-sup">TM</text></view>
-                <text class="fr" decode='true'>&gt;</text>
+                <image class="fr right" src="../../imgs/right.png"/>
         </view>
         <view class="clearfix com-wrap">
             <view class="com-l fl">

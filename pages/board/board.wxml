@@ -1,4 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  榜单
+  <!-- 年度电影榜单 -->
+  <view class="s clearfix">
+    <view class="title">2018年度电影榜单</view>
+    <view class="fl s-warp">
+      <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2546961193.jpg" mode="aspectFill" class="board-img fl"/>
+      <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2546961193.jpg" mode="aspectFill" class="board-img fl"/>
+      <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2546961193.jpg" mode="aspectFill" class="board-img fl"/>
+    </view>
+    <text>+135</text>
+  </view>
 </view>

@@ -9,6 +9,7 @@ Page({
     isUnfold:false,//是否展开简介
     photoArr:[],//剧照数据
     isChina:0,//是否是中国产的
+    hasData:false//是否有数据
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
@@ -24,7 +25,8 @@ Page({
     const path = 'v2/movie/subject/'+id;
     app.douban(itemApi, path, {})
       .then(res => {
-        if(res.data.code==1){
+        if(res.data){
+          then.setData({hasData:true});
           //判断是否是中国产的电影
           if(res.data.countries[0]=='中国大陆'){
             then.setData({isChina:1});
@@ -55,6 +57,7 @@ Page({
             data:res.data.photos
           });
         }else{
+          then.setData({hasData:false});
           wx.showToast({
             title: '网络异常',
             image: '../../imgs/error.png',

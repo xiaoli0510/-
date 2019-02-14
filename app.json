@@ -6,6 +6,7 @@
     "pages/list/list",
     "pages/item/item",
     "pages/comDetail/detail",
+    "pages/search/search",
     "pages/photoMore/photoMore"
   ],
   "permission":{

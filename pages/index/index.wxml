@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
     <view class="search-wrap">
-        <view class="search">
+        <navigator class="search" url="/pages/search/search">
             <image src="../../imgs/search.png" class="search-img" mode="aspectFill" />
             <text>搜索1</text>
-        </view>
+        </navigator>
     </view>
     <view class="main" wx:for="{{list}}" wx:key="idx">
         <text class="title">{{item.title}}</text>

@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="search-wrap">
+    <image src="../../imgs/search.png" class="serarch" />
+    <input placeholder="搜索" focus="true" bindinput="search" />
+  </view>
+  <view class="inner-wrap" wx:if="{{hasData}}">
+    <navigator class="item-nav" wx:for="{{itemData}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
+        <image src="{{item.images.small}}" class="item-img fl" mode="scaleToFill"/>
+        <view class="item-r">
+          <text class="item-title">{{item.title}}</text>
+          <view class="star-wrap">
+            <view class="fl">
+              <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx" />
+              <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx" />
+            </view>
+            <text>{{item.rating.average}}</text>
+          </view>
+          <view>
+            <text>{{item.year}}</text>
+            <text wx:for="{{item.countries}} " wx:key="idx">{{item}}</text>/
+            <text wx:for="{{item.genres}} " wx:key="idx">{{item}}</text>/
+            <text wx:for="{{item.casts}}" wx:key="idx">/{{item.name}}</text>
+          </view>
+        </view>
+    </navigator>
+  </view>
+</view>

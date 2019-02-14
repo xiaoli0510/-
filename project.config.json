@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": 1,
@@ -58,6 +58,20 @@
 					"name": "photoMore",
 					"pathName": "pages/photoMore/photoMore",
 					"query": "id=27110296&title=无名之辈",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "board",
+					"pathName": "pages/board/board",
+					"query": "",
 					"scene": null
 				}
 			]

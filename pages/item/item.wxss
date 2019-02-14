@@ -71,6 +71,10 @@ page{
 .comment{
   color:#565454;
 }
+.right{
+  width:20rpx;
+  height:20rpx;
+}
 .com-title {
   font-size:24rpx;
   color:#000;
