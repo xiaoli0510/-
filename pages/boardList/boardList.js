@@ -5,19 +5,29 @@ const localData = require('../../data/data.js')
 
 Page({
   data: {
+    subTitle: '',
+    title: '',
+    year: '',
+    index: '',
+    value: '',//请求数据的参数
     hasData: false,//是否有数据
     yearData: [],//年度电影榜单
     praiseWeek: [],//一周口碑电影榜
     topData: [],//top250电影
-    year:'',
+    year: '',
   },
-  onLoad: function () {
-    this.getYearData('', 1, 0);
-    this.getYearData('外语电影', 2, 1);
-    this.getYearData('冷门佳片', 9, 2);
-    this.getYearData('科幻片', 20, 3);
-    this.getWeekData();
-    this.getTopData();
+  onLoad: function (options) {
+    this.setData({ title: options.title });
+    this.setData({ year: options.year });
+    this.setData({ index: options.index });
+    this.setData({ value: options.value });
+    if (options.value=='week') {
+      this.getWeekData();
+    }else if (options.value=='top250') {
+      this.getTopData();
+    }else{
+      this.getYearData(options.title, options.value, options.index);
+    }
   },
   //获取一周口碑电影榜
   getWeekData: function () {
@@ -48,6 +58,12 @@ Page({
         if (res.statusCode != 200) {
           res = localData.top250;
         }
+        //获取评星数量
+        let dataArr = res.subjects;
+        for (let i = 0; i < dataArr.length; i++) {
+          dataArr[i].count = Math.round(dataArr[i].rating.average / 2);
+        }
+        res.subjects=dataArr;
         then.setData({ topData: res.subjects });
       })
       .catch(err => {
@@ -69,7 +85,6 @@ Page({
           let itemObj = {
             title: title,
             data: res.data.res,
-            value:value
           }
           let yearData = then.data.yearData;
           //每次请求数据后 请数据添加到yearData中

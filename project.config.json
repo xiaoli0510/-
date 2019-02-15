@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": 1,
@@ -72,6 +72,20 @@
 					"name": "board",
 					"pathName": "pages/board/board",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "boardList",
+					"pathName": "pages/boardList/boardList",
+					"query": "index=1",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "boardList",
+					"pathName": "pages/boardList/boardList",
+					"query": "index=1$&title=一周口碑电影榜&year=2018&value=top250",
 					"scene": null
 				}
 			]

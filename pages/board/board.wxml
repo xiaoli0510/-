@@ -1,13 +1,57 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 年度电影榜单 -->
-  <view class="s clearfix">
-    <view class="title">2018年度电影榜单</view>
-    <view class="fl s-warp">
-      <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2546961193.jpg" mode="aspectFill" class="board-img fl"/>
-      <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2546961193.jpg" mode="aspectFill" class="board-img fl"/>
-      <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2546961193.jpg" mode="aspectFill" class="board-img fl"/>
+  <view class="s">
+    <image src="{{yearData[0].data.payload.mobile_background_img}}" class="bgk-img" mode="aspectFill"/>
+    <view class="shade">
+      <view class="title">{{yearData[0].data.payload.title}}</view>
+      <view class="wrap clearfix">
+        <view class="fl s-warp">
+          <image src="{{item.cover}}" mode="aspectFill" class="board-img fl" wx:for="{{yearData[0].data.subjects}}" wx:key="idx" wx:if="{{index<3}}"
+          />
+        </view>
+        <text class="count">+10</text>
+      </view>
     </view>
-    <text>+135</text>
   </view>
+  <!-- 一周口碑电影榜 -->
+  <navigator class="s" url="/pages/boardList/boardList?index=0&title='一周口碑电影榜'&year={{year}}&value=week">
+      <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill"/>
+      <view class="shade">
+        <view class="title">一周口碑电影榜</view>
+        <view class="wrap clearfix">
+          <view class="fl s-warp">
+            <image src="{{item.cover}}" mode="aspectFill" class="board-img fl" wx:for="{{praiseWeek.subjects}}" wx:key="idx" wx:if="{{index<3}}"
+            />
+          </view>
+          <text class="count">+10</text>
+        </view>
+      </view>
+    </navigator>
+    <!-- top250 -->
+    <navigator class="list clearfix" url="/pages/boardList/boardList?index={{index}}&title=Top250&year={{year}}&value=top250">
+        <image src="{{topData[0].images.small}}" class="list-l fl" mode="aspectFill"/>
+        <view class="list-shade"></view>
+        <view class="title-wrap top">
+          <text>评分最高</text>
+          <text class="list-title">Top250</text>
+          <text class="year">豆瓣电影</text>
+        </view>
+        <view class="list-r">
+            <view wx:for="{{topData}}" wx:key="idx" wx:if="{{index<3}}">{{index+1}}.{{item.title}}<text class="average">{{item.rating.average}}</text>分</view>
+        </view>
+    </navigator>
+        <!-- 评分最高外语 冷门佳片 科幻片 -->
+        <navigator class="list clearfix" wx:for="{{yearData}}" wx:key="idx" wx:if="{{index>0}}" url="/pages/boardList/boardList?index={{index}}&title={{item.title}}&year={{year}}&value={{item.value}}">
+            <image src="{{item.data.subjects[0].cover}}" class="list-l fl" mode="aspectFill"/>
+            <view class="list-shade"></view>
+            <view class="title-wrap">
+              <text wx:if="{{index!==2}}">评分最高</text>
+              <text class="list-title">{{item.title}}</text>
+              <text class="year">{{index!='3'?'2018':'豆瓣'}}</text>
+            </view>
+            <view class="list-r">
+                <view wx:for="{{item.data.subjects}}" wx:key="idx" wx:if="{{index<3}}">{{index+1}}.{{item.title}}<text class="average">{{item.rating}}</text>分</view>
+            </view>
+        </navigator>
 </view>

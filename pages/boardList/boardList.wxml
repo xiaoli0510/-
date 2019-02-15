@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 年度电影榜单 -->
+  <!-- 一周口碑电影榜 -->
+  <view class="s">
+      <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill"/>
+      <view class="shade">
+        <view class="title-banner">
+          <text class="title">{{title}}</text>
+          <text>{{year}}</text>
+        </view>
+      </view>
+    </view>
+ <!-- top 250 list -->
+ <view class="intro clearfix" wx:for="{{topData}}" wx:key="idx">
+    <image src="{{item.images.small}}" mode="aspectFill" class="fl intro-img"/>
+    <view class="fr intro-r">
+        <text class="title-c">{{item.title}}</text>
+        <view class="star-wrap">
+            <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx" />
+            <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx" />
+        </view>
+        <view class="tag">
+            <text>{{item.type}} </text>/
+        </view>
+    </view>
+    <view class="wish clearfix fl">
+        <view class="fl">
+            <image src="../../imgs/want.png" mode="aspectFit" />
+            <text>想看</text>
+        </view>
+        <view class="fr">
+            <image src="../../imgs/have_see.png" mode="aspectFit" />
+            <text>看过</text>
+        </view>
+    </view>
+</view>
+</view>
