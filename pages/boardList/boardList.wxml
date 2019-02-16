@@ -3,36 +3,47 @@
   <!-- 年度电影榜单 -->
   <!-- 一周口碑电影榜 -->
   <view class="s">
-      <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill"/>
-      <view class="shade">
-        <view class="title-banner">
-          <text class="title">{{title}}</text>
-          <text>{{year}}</text>
-        </view>
+    <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill" />
+    <view class="shade">
+      <view class="title-banner">
+        <text class="title">{{title}}</text>
+        <text>{{year}}</text>
       </view>
     </view>
- <!-- top 250 list -->
- <view class="intro clearfix" wx:for="{{topData}}" wx:key="idx">
-    <image src="{{item.images.small}}" mode="aspectFill" class="fl intro-img"/>
-    <view class="fr intro-r">
-        <text class="title-c">{{item.title}}</text>
-        <view class="star-wrap">
-            <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx" />
-            <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx" />
+  </view>
+  <view class="isSee clearfxi">
+    <text class="fl">看过0部电影;共{{allCount}}部</text>
+    <text class="fr login">登录查看成就</text>
+  </view>
+  <!-- top 250 list -->
+  <view class="list">
+    <view class="intro clearfix" wx:for="{{topData}}" wx:key="idx">
+      <text class="rank">No.{{index+1}}</text>
+      <view class="intro-wrap">
+        <image src="{{item.images.small?item.images.small:'../../imgs/item_default.png'}}" mode="aspectFill" class="fl intro-img"
+        />
+        <view class="intro-r">
+          <view class="fl intro-txt">
+            <text class="title-c">{{item.title}}</text>
+            <view class="star-wrap">
+              <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx" />
+              <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx" />
+              <text>{{item.rating.average}}</text>
+            </view>
+            <view class="tag">
+              <text wx:for="{{item.genres}}">{{item}}/</text>
+            </view>
+          </view>
+          <view class="wish clearfix fr">
+            <view class="wish-wrap">
+              <image src="../../imgs/have_see.png" mode="aspectFit" />
+              <text>看过</text>
+            </view>
+          </view>
         </view>
-        <view class="tag">
-            <text>{{item.type}} </text>/
-        </view>
+      </view>
+      <view class="review-count">{{item.collect_count}}人评价</view>
+
     </view>
-    <view class="wish clearfix fl">
-        <view class="fl">
-            <image src="../../imgs/want.png" mode="aspectFit" />
-            <text>想看</text>
-        </view>
-        <view class="fr">
-            <image src="../../imgs/have_see.png" mode="aspectFit" />
-            <text>看过</text>
-        </view>
-    </view>
-</view>
+  </view>
 </view>

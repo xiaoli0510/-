@@ -26,6 +26,9 @@ page{
   min-width:216rpx;
   height:306rpx;
 }
+.intro-r{
+  width:100%;
+}
 .title-c {
   font-size:32rpx;
   font-weight:700;

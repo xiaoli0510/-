@@ -15,6 +15,8 @@ Page({
     praiseWeek: [],//一周口碑电影榜
     topData: [],//top250电影
     year: '',
+    allCount:10,
+
   },
   onLoad: function (options) {
     this.setData({ title: options.title });
@@ -25,6 +27,7 @@ Page({
       this.getWeekData();
     }else if (options.value=='top250') {
       this.getTopData();
+      this.setData({allCount:250});
     }else{
       this.getYearData(options.title, options.value, options.index);
     }
