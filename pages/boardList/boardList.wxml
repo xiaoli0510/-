@@ -7,11 +7,11 @@
     <view class="shade">
       <view class="title-banner">
         <text class="title">{{title}}</text>
-        <text>{{year}}</text>
+        <text>- {{year}} -</text>
       </view>
     </view>
   </view>
-  <view class="isSee clearfxi">
+  <view class="isSee clearfix">
     <text class="fl">看过0部电影;共{{allCount}}部</text>
     <text class="fr login">登录查看成就</text>
   </view>
@@ -31,7 +31,7 @@
               <text>{{item.rating.average}}</text>
             </view>
             <view class="tag">
-              <text wx:for="{{item.genres}}">{{item}}/</text>
+              <text wx:for="{{item.genres}}" wx:key="idx">{{item}}/</text>
             </view>
           </view>
           <view class="wish clearfix fr">

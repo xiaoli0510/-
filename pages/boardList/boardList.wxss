@@ -5,7 +5,6 @@
 }
 .s{
     border-radius:8rpx;
-    margin:10rpx auto;
     box-sizing:border-box;
     position:relative;
     height:300rpx;
@@ -31,17 +30,17 @@
 }
 .title-banner{
     position:absolute;
-    bottom:5%;
+    bottom:10%;
     left:50%;
     transform:translateX(-50%);
     font-size:26rpx;
-   color:rgb(228, 225, 225);
+   color:#ddd;
    display:flex;
    flex-direction: column;
    text-align:center;
 }
 .title{
-   font-size:30rpx;
+   font-size:40rpx;
    color:#fff;
 }
 /* list */
@@ -124,7 +123,7 @@
   .wish image{
     width:30rpx;
     height:30rpx;
-    margin:0 auto;
+    margin:10rpx auto;
   }
   .wish text{
     vertical-align:middle;
@@ -146,12 +145,12 @@
     background:#fff;
     padding:0 20rpx;
     line-height:40rpx;
-    height:40rpx;
+    margin:20rpx 0;
   }
   .login{
     background:#f3a105;
     color:#000;
     border-radius:22rpx;
     line-height:40rpx;
-    padding:0 10rpx;
+    padding:0 20rpx;
   }

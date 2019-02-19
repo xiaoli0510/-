@@ -19,6 +19,7 @@ Page({
 
   },
   onLoad: function (options) {
+    wx.setNavigationBarTitle({title:options.title});
     this.setData({ title: options.title });
     this.setData({ year: options.year });
     this.setData({ index: options.index });
@@ -26,6 +27,7 @@ Page({
     if (options.value=='week') {
       this.getWeekData();
     }else if (options.value=='top250') {
+      console.log(250)
       this.getTopData();
       this.setData({allCount:250});
     }else{
