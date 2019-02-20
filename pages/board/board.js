@@ -32,6 +32,7 @@ Page({
     };
     app.douban(app.data.api, path, params)
       .then(res => {
+        console.log(res.data)
         then.setData({ praiseWeek: res.data });
       })
       .catch(err => {
@@ -58,6 +59,7 @@ Page({
   //value表示的是排行榜类型 1=》华语 2=》外语 9=》冷门佳片 20=》科幻片
   getYearData: function (title, value, index) {
     let year = (new Date()).getFullYear() - 1;
+    this.setData({year,year});
     let itemApi = 'https://movie.douban.com';
     let then = this;
     console.log(year)

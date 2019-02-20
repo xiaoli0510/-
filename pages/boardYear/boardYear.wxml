@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- banner -->
+  
+  <!-- list -->
+   <view>
+     <text>{{year}}分类榜单</text>
+     <view class="list">
+       <image src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp"/>
+       <text>评分最高</text>
+       <text>华语电影</text>
+     </view>
+     <text>看过0部/共10部</text>
+   </view>
+</view>

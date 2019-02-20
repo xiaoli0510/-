@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 年度电影榜单 -->
-  <view class="s">
+  <navigator class="s" url="/pages/boardYear/boardYear?title=豆瓣{{year}}年度电影榜单">
     <image src="{{yearData[0].data.payload.mobile_background_img}}" class="bgk-img" mode="aspectFill"/>
     <view class="shade">
-      <view class="title">{{yearData[0].data.payload.title}}</view>
+      <view class="title">{{year}}年度电影榜单</view>
       <view class="wrap clearfix">
         <view class="fl s-warp">
           <image src="{{item.cover}}" mode="aspectFill" class="board-img fl" wx:for="{{yearData[0].data.subjects}}" wx:key="idx" wx:if="{{index<3}}"
@@ -13,9 +13,9 @@
         <text class="count">+10</text>
       </view>
     </view>
-  </view>
+  </navigator>
   <!-- 一周口碑电影榜 -->
-  <navigator class="s" url="/pages/boardList/boardList?index=0&title='一周口碑电影榜'&year={{year}}&value=week">
+  <navigator class="s" url="/pages/boardList/boardList?index=0&title=一周口碑电影榜&year={{year}}&value=week">
       <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill"/>
       <view class="shade">
         <view class="title">一周口碑电影榜</view>

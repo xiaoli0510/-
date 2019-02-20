@@ -1,12 +1,11 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- 年度电影榜单 -->
-  <!-- 一周口碑电影榜 -->
+  <!-- banner -->
   <view class="s">
     <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill" />
     <view class="shade">
       <view class="title-banner">
-        <text class="title">{{title}}</text>
+        <view class="title"><text class="explain" wx:if="{{type=='1'}}">评分最高</text>{{title}}</view>
         <text>- {{year}} -</text>
       </view>
     </view>
@@ -16,9 +15,9 @@
     <text class="fr login">登录查看成就</text>
   </view>
   <!-- top 250 list -->
-  <view class="list">
-    <view class="intro clearfix" wx:for="{{topData}}" wx:key="idx">
-      <text class="rank">No.{{index+1}}</text>
+  <view class="list" wx:if="{{type=='2'}}">
+    <navigator class="intro clearfix" wx:for="{{topData}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
+      <text class="rank {{index==0?'top':index==1?'one':index==2?'two':'other'}}">No.{{index+1}}</text>
       <view class="intro-wrap">
         <image src="{{item.images.small?item.images.small:'../../imgs/item_default.png'}}" mode="aspectFill" class="fl intro-img"
         />
@@ -44,6 +43,61 @@
       </view>
       <view class="review-count">{{item.collect_count}}人评价</view>
 
-    </view>
+    </navigator>
+  </view>
+  <!-- 年度排行榜 list -->
+  <view class="list" wx:if="{{type=='1'}}">
+    <navigator class="intro clearfix" wx:for="{{yearData}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
+      <text class="rank">No.{{index+1}}</text>
+      <view class="intro-wrap">
+        <image src="{{item.cover?item.cover:'../../imgs/item_default.png'}}" mode="aspectFill" class="fl intro-img" />
+        <view class="intro-r">
+          <view class="fl intro-txt">
+            <text class="title-c">{{item.title}}</text>
+            <view class="star-wrap">
+              <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx" />
+              <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx" />
+              <text>{{item.rating}}</text>
+            </view>
+            <view class="tag">
+              <text>{{item.type}}</text>
+            </view>
+          </view>
+          <view class="wish clearfix fr">
+            <view class="wish-wrap">
+              <image src="../../imgs/have_see.png" mode="aspectFit" />
+              <text>看过</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="review-count">{{item.collect_count}}人评价</view>
+
+    </navigator>
+  </view>
+  <!-- 一周口碑电影榜 list -->
+  <view class="list" wx:if="{{type=='0'}}">
+    <navigator class="intro clearfix" wx:for="{{praiseWeek}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
+      <text class="rank">No.{{index+1}}</text>
+      <view class="intro-wrap">
+        <image src="{{item.cover?item.cover:'../../imgs/item_default.png'}}" mode="aspectFill" class="fl intro-img" />
+        <view class="intro-r">
+          <view class="fl intro-txt">
+            <text class="title-c">{{item.title}}</text>
+            <view class="star-wrap">
+              <image src="../../imgs/star1.png" class="star-img" mode="aspectFit" wx:for="{{item.count}}" wx:key="idx" />
+              <image src="../../imgs/star.png" class="star-img" mode="aspectFit" wx:for="{{5-item.count}}" wx:key="idx" />
+              <text>{{item.rate}}</text>
+            </view>
+          </view>
+          <view class="wish clearfix fr">
+            <view class="wish-wrap">
+              <image src="../../imgs/have_see.png" mode="aspectFit" />
+              <text>看过</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
   </view>
 </view>

@@ -42,19 +42,33 @@
 .title{
    font-size:40rpx;
    color:#fff;
+   font-weight:600;
+}
+.explain{
+  font-weight:500;
+  color:rgb(247, 244, 244);
 }
 /* list */
 .list{
     background:#e6e3e3;
 }
 .rank{
-    background:#f3a105;
+    background:#ccc;
     border-radius:8rpx;
     color:rgb(31, 20, 4);
     font-size:22rpx;
     line-height:40rpx;
     display:inline-block;
     padding:0 10rpx;
+}
+.rank.top{
+  background:rgb(245, 124, 44);
+}
+.rank.one{
+  background:rgb(231, 110, 110);
+}
+.rank.two{
+  background:rgb(226, 189, 66);
 }
 .intro {
     width:100%;
