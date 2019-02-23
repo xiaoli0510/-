@@ -10,9 +10,9 @@
 
   <!-- list -->
   <view class="sub-title">{{year}}分类榜单</view>
-  <view class="list-wrap" wx:for="{{yearData}}" wx:key="idx">
+  <navigator class="list-wrap" wx:for="{{yearData}}" wx:key="idx" url="/pages/boardList/boardList?index=0&title={{item.title}}&year={{year}}&value={{item.value}}">
     <view class="list">
-      <image src="{{item.data.subjects[0].cover}}" mode="aspectFill" />
+      <image src="{{item.data.payload.background_img}}" mode="aspectFill" />
       <view class="shadow"></view>
       <view class="type">
         <text>评分最高</text>
@@ -21,5 +21,5 @@
       <view class="line"></view>
     </view>
     <text class="count">看过0部/共10部</text>
-  </view>
+  </navigator>
 </view>

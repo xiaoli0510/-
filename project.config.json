@@ -76,16 +76,16 @@
 				},
 				{
 					"id": 6,
-					"name": "boardList",
-					"pathName": "pages/boardList/boardList",
-					"query": "index=1$&title=一周口碑电影榜&year=2018&value=top250",
+					"name": "boardYear",
+					"pathName": "pages/boardYear/boardYear",
+					"query": "index=1&title=2018年度电影榜单&year=2018",
 					"scene": null
 				},
 				{
 					"id": 6,
-					"name": "boardYear",
-					"pathName": "pages/boardYear/boardYear",
-					"query": "index=1&title=2018年度电影榜单&year=2018",
+					"name": "boardList",
+					"pathName": "pages/boardList/boardList",
+					"query": "index=2&title=外语电影&year=2018&value=9",
 					"scene": null
 				}
 			]

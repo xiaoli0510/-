@@ -14,14 +14,15 @@ Page({
     this.audioCtx = wx.createAudioContext('myAudio');
     this.audioCtx.play();
     //获取数据
-    this.getYearData('华语电影', 1, 0);
-    this.getYearData('外语电影', 2, 1);
-    this.getYearData('冷门佳片', 9, 2);
-    this.getYearData('科幻片', 20, 3);
+    this.getYearData( 1);
+    this.getYearData( 2);
+    this.getYearData( 11);
+    this.getYearData( 12);
+    this.getYearData( 23);
   },
  //封装函数 获取年度各类型电影排行榜 
-  //value表示的是排行榜类型 1=》华语 2=》外语 9=》冷门佳片 20=》科幻片
-  getYearData: function (title, value, index) {
+  //value表示的是排行榜类型 1=》华语  2=》外语电影 11=》韩国片 12=》日本片  23=》动画片
+  getYearData: function ( value) {
     let year = (new Date()).getFullYear() - 1;
     this.setData({year,year});
     let itemApi = 'https://movie.douban.com';
@@ -31,6 +32,8 @@ Page({
     app.douban(itemApi, path, {})
       .then(res => {
         console.log(res)
+        let title = res.data.res.payload.title;
+        title=title.slice(9);
         if (res.data.r == 0) {
           let itemObj = {
             title: title,
@@ -39,7 +42,7 @@ Page({
           }
           let yearData = then.data.yearData;
           //每次请求数据后 请数据添加到yearData中
-          yearData[index] = itemObj;
+          yearData.push(itemObj);
           then.setData({ hasData: true });
           then.setData({ yearData: yearData });
         }
