@@ -2,7 +2,7 @@
 <view class="container">
   <!-- banner -->
   <view class="s">
-    <image src="https://img1.doubanio.com/view/photo/sqxs/public/p2523037668.webp" class="bgk-img" mode="aspectFill" />
+    <image src="{{yearData.payload.background_img?yearData.payload.background_img:topData[0].images.large?topData[0].images.large:praiseWeek[0].cover}}" class="bgk-img" mode="aspectFill" />
     <view class="shade">
       <view class="title-banner">
         <view class="title"><text class="explain" wx:if="{{type=='1'}}">评分最高</text>{{title}}</view>
@@ -47,8 +47,8 @@
   </view>
   <!-- 年度排行榜 list -->
   <view class="list" wx:if="{{type=='1'}}">
-    <navigator class="intro clearfix" wx:for="{{yearData}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
-      <text class="rank">No.{{index+1}}</text>
+    <navigator class="intro clearfix" wx:for="{{yearData.subjects}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
+      <text class="rank {{index==0?'top':index==1?'one':index==2?'two':'other'}}">No.{{index+1}}</text>
       <view class="intro-wrap">
         <image src="{{item.cover?item.cover:'../../imgs/item_default.png'}}" mode="aspectFill" class="fl intro-img" />
         <view class="intro-r">
@@ -78,7 +78,7 @@
   <!-- 一周口碑电影榜 list -->
   <view class="list" wx:if="{{type=='0'}}">
     <navigator class="intro clearfix" wx:for="{{praiseWeek}}" wx:key="idx" url="/pages/item/item?id={{item.id}}&title={{item.title}}">
-      <text class="rank">No.{{index+1}}</text>
+      <text class="rank {{index==0?'top':index==1?'one':index==2?'two':'other'}}">No.{{index+1}}</text>
       <view class="intro-wrap">
         <image src="{{item.cover?item.cover:'../../imgs/item_default.png'}}" mode="aspectFill" class="fl intro-img" />
         <view class="intro-r">

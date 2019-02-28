@@ -1,0 +1,28 @@
+.container{
+    width:95%;
+    margin:0 auto;
+    font-size:28rpx;
+    color:rgb(51, 49, 49);
+    display:flex;
+    flex-direction: column;
+}
+.old{
+    display: inline-block;
+    color:rgb(181, 64, 204);
+}
+text{
+    line-height:40rpx;
+}
+.tip{
+    font-size:26rpx;
+    color:#000;
+    font-weight:700;
+}
+.number{
+    font-size:30rpx;
+    color:#000;
+    font-weight:700;
+    line-height:60rpx;
+    border-bottom:1rpx solid #ddd;
+    margin:20rpx 0 5rpx 0;
+}

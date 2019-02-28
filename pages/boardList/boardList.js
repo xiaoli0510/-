@@ -52,6 +52,7 @@ Page({
     };
     app.douban(app.data.api, path, params)
       .then(res => {
+        console.log(res)
           //获取评星数量
           let dataArr = res.data.subjects;
           for (let i = 0; i < dataArr.length; i++) {
@@ -70,6 +71,7 @@ Page({
     const path = 'v2/movie/top250';
     app.douban(itemApi, path, {})
       .then(res => {
+        console.log(res)
         if (res.statusCode != 200) {
           res = localData.top250;
         }
@@ -79,6 +81,7 @@ Page({
           dataArr[i].count = Math.round(dataArr[i].rating.average / 2);
         }
         res.subjects=dataArr;
+        console.log(res.subjects)
         then.setData({ topData: res.subjects });
       })
       .catch(err => {
@@ -94,14 +97,17 @@ Page({
     const path = 'ithil_j/activity/movie_annual' + year + '/widget/' + value;
     app.douban(itemApi, path, {})
       .then(res => {
+        console.log(res)
         if (res.data.r == 0) {
             //获取评星数量
         let dataArr = res.data.res.subjects;
         for (let i = 0; i < dataArr.length; i++) {
           dataArr[i].count = Math.round(dataArr[i].rating / 2);
         }
+        res.data.res.subjects=dataArr;
           then.setData({ hasData: true });
-          then.setData({ yearData: dataArr });
+          console.log(res.data.res)
+          then.setData({ yearData: res.data.res });
         }
       })
       .catch(err => {

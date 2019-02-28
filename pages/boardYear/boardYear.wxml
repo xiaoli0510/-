@@ -2,7 +2,7 @@
 <view class="container">
   <!-- banner -->
   <view class="media-wrap">
-    <video src="//sv1.doubanio.com/201902211127/8bbe025a5f2d5f12a754ed43c598e24c/2017/mp4ieannual2018.mp4" class="video" controls="{{false}}"
+    <video src="/source/advert.mp4" class="video" controls="{{false}}"
       loop autoplay auto-pause-if-navigate="{{false}}" auto-pause-if-open-native="{{false}}"></video>
       <image src="https://img1.doubanio.com/view/activity_page/raw/public/p3738.jpg" mode="aspectFit" class="board"/>
     <audio src="https://mr3.doubanio.com/cdc0f203b6d5da78025a9b21117e9382/0/fm/song/p2937378_128k.mp4" id="myAudio" loop></audio>

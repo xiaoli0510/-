@@ -9,7 +9,10 @@
     "pages/search/search",
     "pages/photoMore/photoMore",
     "pages/boardList/boardList",
-    "pages/boardYear/boardYear"
+    "pages/boardYear/boardYear",
+    "pages/login/login",
+    "pages/agree/agree",
+    "pages/oldAgree/oldAgree"
   ],
   "permission":{
      "scope.userLocation":{
