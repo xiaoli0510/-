@@ -53,3 +53,50 @@ page{
     margin-left:20rpx;
     display:inline-block;
 }
+/* 模态框 */
+.mask{
+    background:rgba(0,0,0,.4);
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+}
+.modal-warp{
+    position:absolute;
+    left:0;
+    bottom:0;
+    background:#fff;
+    padding:20rpx;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+.douban{
+    width:30rpx;
+    height:30rpx;
+}
+.tip,.yes{
+    width:20rpx;
+    height:20rpx;
+}
+.name{
+    font-size:28rpx;
+    font-weight:600;
+}
+.explain{
+    font-size:34rpx;
+    font-weight:700;
+}
+.phone-wrap{
+    border:1rpx solid #ccc;
+    height:50rpx;
+    line-height:50rpx;
+    color:rgb(37, 35, 35);
+}
+.phone{
+    color:#000;
+}
+.other-phone{
+    color:rgb(16, 70, 151);
+}

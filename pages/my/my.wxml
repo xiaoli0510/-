@@ -2,7 +2,7 @@
 <view class="container">
   <!-- banner -->
   <view class="top">
-    <text>豆瓣书影音报告</text>
+    <navigator url="/pages/login/login" class="login-btn">登录</navigator>
   </view>
   <!-- 我的书影音 -->
   <view class="wrap">

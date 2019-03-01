@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": 1,
@@ -107,6 +107,12 @@
 					"name": "agree",
 					"pathName": "pages/agree/agree",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "oldAgree",
+					"pathName": "pages/oldAgree/oldAgree",
 					"scene": null
 				}
 			]
