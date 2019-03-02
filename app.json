@@ -10,7 +10,9 @@
     "pages/photoMore/photoMore",
     "pages/boardList/boardList",
     "pages/boardYear/boardYear",
+    "pages/loginWay/loginWay",
     "pages/login/login",
+    "pages/otherTelLogin/otherTelLogin",
     "pages/agree/agree",
     "pages/oldAgree/oldAgree"
   ],

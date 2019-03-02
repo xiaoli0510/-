@@ -1,34 +1,24 @@
 <view class="container">
   <view class="wrap">
-    <image src="/imgs/logo.png" class="logo"/>
-    <view class="login-wechat"  bindtap="wechatLogin">微信登录</view>
-    <view class="login"  bindtap="accountLogin">已有豆瓣账号登录</view>
-  </view>
-  <view class="agree">
-    <text>登录表示同意</text><navigator class="agreement" url="/pages/agree/agree">豆瓣使用协议/隐私协议</navigator>
-  </view>
-  <!-- 微信登录模态框 -->
- <view class="mask">
-   <view class="modal-warp">
-       <view>
-          <view class="fl">
-            <image src="/imgs/douban.png" class="douban"/>
-            <text class="name">豆瓣评分</text>
-            <text>申请使用</text>
+      <form bindsubmit="formSubmit">
+          <h2>豆瓣账号密码登录</h2>
+          <view class="section {{focusIndex=='0'?'active':''}}">
+            <input name="phone"  type="number" value="{{phone}}" placeholder="手机号/邮箱"/>
           </view>
-          <image src="/imgs/tip.png" class="tip fr"/>
-       </view>
-       <text class="explain">你的手机号码</text>
-       <view class="phone-wrap">
-          <input value="13524268216" type="number" disabled="true" class="fl phone"/>
-          <text class="fl">微信绑定号码</text>
-          <image src="/imgs/yes.png" class="yes fr"/>
-       </view>
-       <text class="other-phone">使用其他手机号码</text>
-       <view>
-         <button size="mini">拒绝</button>
-         <button type="primary" size="mini">允许</button>
-       </view>
-   </view>
- </view>
+          <view class="section {{focusIndex=='1'?'active':''}}">
+            <input name="phone"  type="number" value="{{phone}}" placeholder="密码"/>
+          </view>
+          <view class="btn-area">
+            <button form-type="submit" type="primary" class="finish" disabled="{{!finish}}">登录</button>
+          </view>
+        </form>
+        <view>
+          <navigator url="" class="fl">短信验证登录/注册</navigator>
+          <navigator url="" class="fr">海外手机密码登录</navigator>
+        </view>
+        <view>
+          <text>忘记密码</text>
+          <text>找回密码</text>
+        </view>
+  </view>
 </view>

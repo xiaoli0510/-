@@ -2,14 +2,14 @@
 <view class="container">
   <!-- banner -->
   <view class="top">
-    <navigator url="/pages/login/login" class="login-btn">登录</navigator>
+    <navigator url="/pages/loginWay/loginWay" class="login-btn">登录</navigator>
   </view>
   <!-- 我的书影音 -->
   <view class="wrap">
       <view class="clearfix title-wrap">
           <text class="fl sub-title">我的书影音</text>
             <image src="/imgs/right.png" class="right fr"/>
-            <navigator class="fr login" url="/pages/login/login">登录查看</navigator>
+            <navigator class="fr login" url="/pages/loginWay/loginWay">登录查看</navigator>
         </view>
     <view class="clearfix item" wx:for="{{allData}}" wx:key="{{idx}}">
       <view class="fl type">

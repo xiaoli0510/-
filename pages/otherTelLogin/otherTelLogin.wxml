@@ -1,0 +1,22 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="section {{focusIndex=='0'?'active':''}}">
+      <view class="section__title fl">手机号码</view>
+      <input name="phone"  type="number" value="{{phone}}" placeholder="输入有效手机号" class="fl" data-index="0" bindfocus="focus" bindinput="phone"/>
+      <button class="fr get-code" bindtap="getCode" disabled="{{send}}">{{getCodeTex}}</button>
+      <view class="fr close" hidden="{{!showPhoneClose}}" bindtap="clearPhone">x</view>
+    </view>
+    <view class="section {{focusIndex=='1'?'active':''}}">
+      <view class="section__title fl">验证码</view>
+      <input name="code" type="text" value="{{code}}" placeholder="输入六位验证码" class="fl" data-index="1" maxlength="6" bindfocus="focus" bindinput="code"/>
+      <view class="fr close" hidden="{{!showCodeClose}}" bindtap="clearCode">x</view>
+    </view>
+    <view class="section section_gap">
+      <view class="fl">保存此号码供以后授权使用</view>
+      <switch name="switch"  class="fr"/>
+    </view>
+    <view class="btn-area">
+      <button form-type="submit" type="primary" class="finish" disabled="{{!finish}}">完成</button>
+    </view>
+  </form>
+</view>

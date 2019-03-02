@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 12,
 			"list": [
 				{
 					"id": 1,
@@ -97,13 +97,6 @@
 				},
 				{
 					"id": -1,
-					"name": "login",
-					"pathName": "pages/login/login",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "agree",
 					"pathName": "pages/agree/agree",
 					"query": "",
@@ -113,6 +106,28 @@
 					"id": -1,
 					"name": "oldAgree",
 					"pathName": "pages/oldAgree/oldAgree",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "otherTelLogin",
+					"pathName": "pages/otherTelLogin/otherTelLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "loginWay",
+					"pathName": "pages/loginWay/loginWay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": "",
 					"scene": null
 				}
 			]

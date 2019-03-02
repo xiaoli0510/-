@@ -1,0 +1,41 @@
+.container{
+    font-size:30rpx;
+}
+.section{
+    width:95%;
+    margin:0 auto;
+    height:100rpx;
+    line-height:100rpx;
+    border-bottom:1rpx solid #ccc;
+}
+.section.active{
+    border-bottom:1rpx solid #1bc859;
+}
+.section:first-of-type{
+    border-top:1rpx solid #ccc;
+}
+.section__title{
+    width:120rpx;
+}
+input{
+    height:100rpx;
+    line-height:100rpx;
+    margin-left:10rpx;
+}
+.get-code{
+    border:1rpx solid #000;
+    background:#fff;
+    height:60rpx;
+    line-height:60rpx;
+    margin-top:20rpx;
+    font-size:26rpx;
+    padding:0 13rpx;
+}
+.finish{
+    width:60%;
+    margin-top:10%;
+}
+.close{
+    margin-right:10rpx;
+    color:rgb(109, 108, 108);
+}

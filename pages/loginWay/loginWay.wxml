@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="wrap">
+    <image src="/imgs/logo.png" class="logo"/>
+    <view class="login-wechat"  bindtap="wechatLogin">微信登录</view>
+    <navigator class="login"  bindtap="accountLogin" url="/pages/login/login">已有豆瓣账号登录</navigator>
+  </view>
+  <view class="agree">
+    <text>登录表示同意</text><navigator class="agreement" url="/pages/agree/agree">豆瓣使用协议/隐私协议</navigator>
+  </view>
+  <!-- 微信登录模态框 -->
+ <view class="mask" hidden="{{hiddenMask}}">
+   <view class="modal-warp">
+       <view class="modal-title">
+          <view class="fl">
+            <image src="/imgs/douban.png" class="douban"/>
+            <text class="name">豆瓣评分</text>
+            <text>申请使用</text>
+          </view>
+          <image src="/imgs/tip.png" class="tip fr"/>
+       </view>
+       <text class="explain">你的手机号码</text>
+       <view class="phone-wrap">
+          <input value="12345678912" type="number" disabled="true" class="fl phone"/>
+          <text class="fl bound">微信绑定号码</text>
+          <image src="/imgs/yes.png" class="yes fr"/>
+       </view>
+       <navigator url="/pages/otherTelLogin/otherTelLogin" class="other-phone">使用其他手机号码</navigator>
+       <view class="btn-wrap">
+         <button class="deny" bindtap="deny">拒绝</button>
+         <button class="allow" type="primary" bindtap="allow">允许</button>
+       </view>
+   </view>
+ </view>
+</view>

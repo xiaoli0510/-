@@ -1,0 +1,135 @@
+page{
+    width:100%;
+    height:100%;
+}
+.container{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+.wrap{
+    width:90%;
+    position:absolute;
+    left:50%;
+    top:20%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+}
+.logo{
+    width:200rpx;
+    height:200rpx;
+    margin:0 auto;
+}
+.login{
+    border:1rpx solid #1bc859;
+    height:70rpx;
+    line-height:70rpx;
+    border-radius:3rpx;
+    color:#1bc859;
+    font-size:34rpx;
+}
+.login-wechat{
+    background:#1bc859;
+    height:70rpx;
+    line-height:70rpx;
+    border-radius:3rpx;
+    color:#fff;
+    margin:60rpx 0 30rpx 0;
+    font-size:34rpx;
+}
+.agree{
+    color:rgb(99, 94, 94);
+    font-size:22rpx;
+    text-align:center;
+    position:absolute;
+    width:100%;
+    bottom:10%;
+    left:0;
+}
+.agreement{
+    color:#1bc859;
+    margin-left:20rpx;
+    display:inline-block;
+}
+/* 模态框 */
+.mask{
+    background:rgba(0,0,0,.4);
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+}
+.modal-warp{
+    position:absolute;
+    left:0;
+    bottom:0;
+    background:#fff;
+    padding:30rpx 30rpx 80rpx 30rpx;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    font-size:30rpx;
+    box-sizing:border-box;
+}
+.douban{
+    width:45rpx;
+    height:45rpx;
+    vertical-align:middle;
+}
+.tip,.yes{
+    width:30rpx;
+    height:30rpx;
+    vertical-align:middle;
+    margin-top:35rpx;
+}
+.name{
+    font-size:32rpx;
+    font-weight:600;
+    margin:0 10rpx;
+}
+.explain{
+    font-size:40rpx;
+    font-weight:700;
+    line-height:100rpx;
+}
+.phone-wrap{
+    border:1rpx solid #ccc;
+    height:42px;
+    line-height:100rpx;
+    color:rgb(37, 35, 35);
+    margin:30rpx 0 20rpx 0;
+    border-left:none;
+    border-right:none;
+}
+.phone{
+    color:#000;
+    height:100rpx;
+}
+.other-phone{
+    color:rgb(16, 70, 151);
+    margin-bottom:100rpx;
+}
+.modal-title{
+    line-height:100rpx;
+}
+.bound{
+    color:rgb(124, 122, 122);
+}
+.btn-wrap{
+    text-align: center;
+}
+.deny{
+    width:47%;
+    background:rgb(228, 225, 225);
+    border:none;
+    display:inline-block;
+    float:left;
+    outline: none;
+}
+.allow{
+    width:47%;
+    float:right;
+}
