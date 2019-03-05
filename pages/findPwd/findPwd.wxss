@@ -3,6 +3,7 @@
     margin:0 auto;
     text-align: center;
     font-size:24rpx;
+    text-align:left;
 }
 h2{
     font-size:40rpx;
@@ -13,6 +14,7 @@ h2{
     border:1rpx solid #ccc;
     text-align: left;
     padding-left:10rpx;
+    margin-bottom:20rpx;
 }
 .section:first-of-type,.section-phoneMes{
     border-bottom:none;
@@ -43,20 +45,6 @@ h2{
     border-right:0.5px solid #ccc;
     line-height:1.4rem;
     padding-right:10rpx;
-}
-.section{
-    position:relative;
-}
-.code-btn{
-    height:1.4rem;
-    line-height:1.4rem;
-    position:absolute;
-    right:10rpx;
-    top:0;
-    font-size:20rpx;
-    color:#1bc859;
-    border:none;
-    z-index:999;
 }
 .phone-mes{
     padding-left:10rpx;

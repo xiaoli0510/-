@@ -27,10 +27,10 @@
            <text wx:if="{{index=='2'}}">标记10张唱片</text>
            <text>开启{{item.name}}分析</text>
       </view>
-      <view class="fl open">
+      <navigator url="/pages/loginWay/loginWay" class="fl open">
                 <text class="open-txt">立即开启</text>
                 <image src="/imgs/right.png" class="right right1" />
-      </view>
+      </navigator>
     </view>
   </view>
 </view>

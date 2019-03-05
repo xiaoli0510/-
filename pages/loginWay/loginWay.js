@@ -19,6 +19,7 @@ Page({
       img:'/imgs/music.png'
     }],
     hiddenMask:true,//是否显示模态框
+    phone:'',//微信绑定手机号码
   },
   onLoad: function () {
   },
@@ -26,9 +27,13 @@ Page({
   wechatLogin:function(){
      this.setData({hiddenMask:false});
   },
-  //账号登录
-  accountLogin:function(){
-
+  getPhoneNumber:function(e){
+    //获取微信绑定手机号 //需要客户端验证
+    if(e.detail.encryptedData){
+       this.setData({phone:e.detail.encryptedData.phoneNumber})
+    }else{
+      this.setData({phone:'12345678912'})
+    }
   },
   //拒绝
   deny:function(){

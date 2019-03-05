@@ -1,24 +1,45 @@
 <view class="container">
-  <view class="wrap">
-      <form bindsubmit="formSubmit">
-          <h2>豆瓣账号密码登录</h2>
-          <view class="section {{focusIndex=='0'?'active':''}}">
-            <input name="phone"  type="number" value="{{phone}}" placeholder="手机号/邮箱"/>
-          </view>
-          <view class="section {{focusIndex=='1'?'active':''}}">
-            <input name="phone"  type="number" value="{{phone}}" placeholder="密码"/>
-          </view>
-          <view class="btn-area">
-            <button form-type="submit" type="primary" class="finish" disabled="{{!finish}}">登录</button>
-          </view>
-        </form>
-        <view>
-          <navigator url="" class="fl">短信验证登录/注册</navigator>
-          <navigator url="" class="fr">海外手机密码登录</navigator>
-        </view>
-        <view>
-          <text>忘记密码</text>
-          <text>找回密码</text>
-        </view>
+  <!-- 豆瓣账号密码登录 -->
+  <view class="wrap" hidden="{{!isAccountLogin}}">
+    <form bindsubmit="formSubmit">
+      <h2>{{isForeign?'海外手机密码登录':'豆瓣账号密码登录'}}</h2>
+      <view class="section">
+          <text class="fl pre" wx:if="{{isForeign}}">+86</text>
+        <input name="phone" type="number" value="{{phone}}" class="{{isForeign?'phone-mes':''}}" placeholder="{{isForeign?'手机号':'手机号/邮箱'}}" bindinput="phone" />
+      </view>
+      <view class="section">
+        <input name="pwd" type="password" value="{{pwd}}" placeholder="密码" bindinput="pwd" />
+      </view>
+      <view class="btn-area">
+        <button form-type="submit" type="primary" class="finish" disabled="{{!finish}}" bindtap="login">登录</button>
+      </view>
+    </form>
+    <view class="clearfix login-area">
+      <text class="fl" bindtap="switchMesLogin">短信验证登录/注册</text>
+      <text class="fr" bindtap="switchForeign">{{isForeign?'豆瓣账号密码登录':'海外手机密码登录'}}</text>
+    </view>
+    <view class="pwd-area" bindtap="findPwd">
+      <text class="find-pwd">忘记密码?</text>
+      <text>找回密码</text>
+    </view>
+  </view>
+  <!-- 短信登录/注册 -->
+  <view class="wrap" hidden="{{isAccountLogin}}">
+    <form bindsubmit="formSubmitMes">
+      <h2>短信登录/注册</h2>
+      <view class="explain">未注册的手机,验证后即可完成注册</view>
+      <view class="section section-phoneMes">
+        <text class="fl pre">+86</text>
+        <input name="phone" type="number" class="phone-mes" value="{{phoneMes}}" placeholder="手机号/邮箱" bindinput="phoneMes" />
+      </view>
+      <view class="section">
+        <input name="code" type="text" value="{{codeMes}}" maxlength="6" placeholder="验证码" bindinput="codeMes" />
+        <view class="code-btn" :disabled="{{send}}" bindtap="getCode">{{getCodeTex}}</view>
+      </view>
+      <view class="btn-area">
+        <button form-type="submit" type="primary" class="finish" disabled="{{!finishMes}}" bindtap="login">登录</button>
+      </view>
+    </form>
+    <text class="fl switch-account" bindtap="switchAccountLogin">豆瓣账号密码登录</text>
   </view>
 </view>

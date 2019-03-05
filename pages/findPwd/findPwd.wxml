@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="wrap">
+    <!-- 填写手机号码或者邮箱 -->
+    <form bindsubmit="formSubmit" wx:if="{{!showResetPwd}}">
+      <h2>{{isPhone?'用手机号找回密码':'用邮箱找回密码'}}</h2>
+      <view class="explain">请输入你的账号绑定的{{isPhone?'手机号码':'邮箱地址'}}</view>
+      <view class="section" wx:if="{{isPhone}}">
+        <text class="fl pre">+86</text>
+        <input name="phone" type="number" value="{{phone}}" class="phone-mes" placeholder="手机号" bindinput="phone" />
+      </view>
+      <view class="section" wx:if="{{!isPhone}}">
+        <input name="email" type="text" value="{{email}}" placeholder="邮箱" bindinput="email" />
+      </view>
+      <view class="btn-area">
+        <button form-type="submit" type="primary" class="finish" disabled="{{!finish}}">下一步</button>
+      </view>
+    </form>
+    <!-- 充值密码 -->
+    <form bindsubmit="findPwd" wx:if="{{showResetPwd}}">
+      <h2>找回密码</h2>
+      <view class="explain">请填写新密码</view>
+      <view class="section">
+        <input name="pwd" type="password" value="{{pwd}}" placeholder="密码" bindinput="pwd" />
+      </view>
+      <view class="section">
+        <input name="confirmPwd" type="password" value="{{confirmPwd}}" placeholder="确认密码" bindinput="confirmPwd" />
+      </view>
+      <view class="btn-area">
+        <button form-type="submit" type="primary" class="finish" disabled="{{!finishPwd}}">确认</button>
+      </view>
+    </form>
+  </view>
+</view>

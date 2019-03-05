@@ -1,8 +1,8 @@
 <view class="container">
   <view class="wrap">
     <image src="/imgs/logo.png" class="logo"/>
-    <view class="login-wechat"  bindtap="wechatLogin">微信登录</view>
-    <navigator class="login"  bindtap="accountLogin" url="/pages/login/login">已有豆瓣账号登录</navigator>
+    <button class="login-wechat"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="wechatLogin">微信登录</button>
+    <navigator class="login" url="/pages/login/login">已有豆瓣账号登录</navigator>
   </view>
   <view class="agree">
     <text>登录表示同意</text><navigator class="agreement" url="/pages/agree/agree">豆瓣使用协议/隐私协议</navigator>
@@ -20,7 +20,7 @@
        </view>
        <text class="explain">你的手机号码</text>
        <view class="phone-wrap">
-          <input value="12345678912" type="number" disabled="true" class="fl phone"/>
+          <input value="{{phone}}" type="number" disabled="true" class="fl phone"/>
           <text class="fl bound">微信绑定号码</text>
           <image src="/imgs/yes.png" class="yes fr"/>
        </view>

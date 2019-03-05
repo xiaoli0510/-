@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
     <view class="search-wrap">
         <navigator class="search" url="/pages/search/search">
